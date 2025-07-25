@@ -1,0 +1,23 @@
+<div>
+	<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseContactForm" action="">
+		<div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="caseContactInfoTable" data-dojo-props="cols:4,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+			<div data-dojo-type="dijit/form/ValidationTextBox" title="Contact Name${reqLabel}" data-dojo-attach-point="contactName" required="true" allowedTypes="I,Q,E,C" data-dojo-props="missingMessage:'Please enter Contact Name',tooltipPosition:['after']"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" title="Contact Phone${reqLabel}" data-dojo-attach-point="contactPhone" required="true" allowedTypes="I,Q,E,C" data-dojo-props="missingMessage:'Please enter Contact Phone',tooltipPosition:['after']"></div>
+			<div data-dojo-type="app/view/ValidationTextarea" title="Contact Email<req>" rows=1 data-dojo-attach-point="contactEmail" data-dojo-props="intermediateChanges:true,regExp:this.lingoController.validateContactEmail(), invalidMessage:'Invalid Email',
+                missingMessage:'Please provide valid email address', tooltipPosition:['after'],trim:true" required="true" style="width:200px"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" title="Local Contact Name${reqLabel2}" data-dojo-attach-point="localContactName" allowedTypes="I,Q" data-dojo-props="missingMessage:'Please enter Local Contact Name',tooltipPosition:['after']" required="false"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" title="Local Contact Number${reqLabel2}" data-dojo-attach-point="localContactNum" allowedTypes="I,Q" data-dojo-props="missingMessage:'Please enter Local Contact Number',tooltipPosition:['after']" required="false"></div>
+			<div data-dojo-type="dijit/form/FilteringSelect" title="Preferred Contact Method" placeholder="Contact Method" data-dojo-attach-point="contactMethod" allowedTypes="I,Q" sortByLabel=false required="false" style="width: 200px;"></div>
+			<div data-dojo-type="dijit/form/TextBox" title="Client Internal Ticket#" data-dojo-attach-point="intTicketNum" allowedTypes="I,Q"></div>
+			<textarea data-dojo-type="app/view/ValidationTextarea" title="Additional Emails" data-dojo-attach-point="additionalEmail" allowedTypes="I,Q,E,C" data-dojo-props="intermediateChanges:true,regExp:this.lingoController.validateEmails(), invalidMessage:'Please provide comma separated email addresses', tooltipPosition:['after'],trim:true,rows:2" rows="2" style="width: 250px;"></textarea>
+			<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="intermediateChanges:true" name="clientContactName" allowedTypes="E" title="Client Contact Name" data-dojo-attach-point="clientContactName"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="intermediateChanges:true" name="clientContactNumber" allowedTypes="E" title="Client Contact Phone" data-dojo-attach-point="clientContactPh"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="intermediateChanges:true" allowedTypes="E" name="clientContactEmail" title="Client Contact Email" placeHolder="You@example.com" data-dojo-attach-point="clientContactEmail" required="false"></div>
+			<div data-dojo-type="dijit/layout/ContentPane" title="Follow-Up Date/Time" allowedTypes="E">
+				<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="followUpDate1" title="Date" data-dojo-props="constraints:{min: new Date(),datePattern: 'yyyy-MM-dd'}"></div>
+				<div data-dojo-type="dijit/form/TimeTextBox" data-dojo-attach-point="followUpTime1" data-dojo-props="constraints: {timePattern: 'HH:mm:ss', clickableIncrement: 'T00:15:00', visibleIncrement: 'T00:15:00', visibleRange: 'T01:00:00' }">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

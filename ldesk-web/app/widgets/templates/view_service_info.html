@@ -1,0 +1,92 @@
+<div class="${baseClass}">>
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="ServiceDetails"
+		data-dojo-props="destroyOnClose : false,closable: true" style="width: 1500px" title="Service Information">
+		<div class="dijitDialogPaneContentArea">
+			<div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="serviceInfoDiv"
+				data-dojo-props="cols:5,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Id" data-dojo-attach-point="srvId">
+				</div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="App Id" data-dojo-attach-point="accountId">
+				</div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Account Name"
+					data-dojo-attach-point="companyName"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Billing Type"
+					data-dojo-attach-point="billingType"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Billing Number"
+					data-dojo-attach-point="billingNumber"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Number Id"
+					data-dojo-attach-point="serviceNoId"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Number"
+					data-dojo-attach-point="serviceNo"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Type"
+					data-dojo-attach-point="servicetype"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Start Date"
+					data-dojo-attach-point="serviceStartDate"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service End Date"
+					data-dojo-attach-point="serviceEndDate"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Status" data-dojo-attach-point="status"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Status Date"
+					data-dojo-attach-point="statusDate">
+				</div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Name"
+					data-dojo-attach-point="serviceName"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Provider"
+					data-dojo-attach-point="srvProvider"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Plan"
+					data-dojo-attach-point="srvPlan">
+				</div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Service Plan Id"
+					data-dojo-attach-point="srvPlanId"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Circuit Id"
+					data-dojo-attach-point="circuitId">
+				</div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Class Of Service"
+					data-dojo-attach-point="clsOfService"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Display Name"
+					data-dojo-attach-point="displayName"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Display Number"
+					data-dojo-attach-point="displayNumber"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Equipment Manufacturer"
+					data-dojo-attach-point="eqpManufacturer"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Equipment Model"
+					data-dojo-attach-point="eqpModel"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Facility Provider"
+					data-dojo-attach-point="facilityProvider"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Inter Carrier"
+					data-dojo-attach-point="interCarrier"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Intra Carrier"
+					data-dojo-attach-point="intraCarrier"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Is Btn" data-dojo-attach-point="isBtn"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="First Call Date"
+					data-dojo-attach-point="firstCallDate"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Last Call Date"
+					data-dojo-attach-point="lastCallDate"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="MEID" data-dojo-attach-point="meid"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Mobile Carrier"
+					data-dojo-attach-point="mobileCarrier"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Ocn" data-dojo-attach-point="ocn"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Ocn Name" data-dojo-attach-point="ocnName">
+				</div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Speed" data-dojo-attach-point="speed"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Terminating Number"
+					data-dojo-attach-point="terminatingNumber"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Vendor Account"
+					data-dojo-attach-point="vendorAccount"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Top Parent Account Id"
+					data-dojo-attach-point="topParentAccountId"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Billing System"
+					data-dojo-attach-point="billingSystem"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Created Date"
+					data-dojo-attach-point="createdDate"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Updated Date"
+					data-dojo-attach-point="updatedDate"></div>
+				<div data-dojo-type="dijit/form/Textarea" title="Service Address" data-dojo-attach-point="srvAddress">
+				</div>
+			</div>
+		</div>
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+		</div>
+
+	</div>
+</div>

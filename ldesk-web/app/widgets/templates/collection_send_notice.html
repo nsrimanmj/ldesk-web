@@ -1,0 +1,48 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" title="Send Notice" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="sendNoticeDialog" style="width:40%;">
+		<div class="dijitDialogPaneContentArea">
+			<div class="send-collection-notice" data-dojo-id="parCon" data-dojo-attach-point="parContainer">
+				<div class="flex-row" style="gap: 2px;">
+					<div data-dojo-type="dijit/Fieldset" data-dojo-attach-point="colCaseDet" data-dojo-props="toggleable:false">
+						<legend><b>Case Details</b> </legend>
+						<div style="padding-bottom: 10px;"> Case:<span style="padding-left: 10px;" data-dojo-attach-point="caseId"></span></div>
+						<div style="padding-bottom: 10px;"> Account:<b><span style="padding-left: 10px;" data-dojo-attach-point="accountNameSpan"></span></b></div>
+						<div style="padding-bottom: 10px;"> APP ID:<b><span style="padding-left: 10px;" data-dojo-attach-point="appIdSpan"></span></b></div>
+						<div style="padding-bottom: 10px;"> Deny Date:<b><span style="padding-left: 10px;" data-dojo-attach-point="denyDate"></span></b></div>
+						<div style="padding-bottom: 10px;"> Disconnect Date:<b><span style="padding-left: 10px;" data-dojo-attach-point="disConDate"></span></b></div>
+					</div>
+					<div data-dojo-type="dijit/Fieldset" data-dojo-attach-point="treatDetails" data-dojo-props="toggleable:false">
+						<legend><b>Treatment Status</b></legend>
+						<div style="padding-bottom: 10px;"> Current Treatment Status:<b><span style="padding-left: 10px;" data-dojo-attach-point="treatStatus"></span></b></div>
+						<div style="padding-bottom: 10px;"> Reminder Sent:<b><span style="padding-left: 10px;" data-dojo-attach-point="remSent"></span></b></div>
+						<div style="padding-bottom: 10px;"> Suspend Notice Date:<b><span style="padding-left: 10px;" data-dojo-attach-point="susNotDate"></span></b></div>
+						<div style="padding-bottom: 10px;"> Disconnect Notice Date:<b><span style="padding-left: 10px;" data-dojo-attach-point="disConNotDate"></span></b></div>
+						<div style="padding-bottom: 10px;"> Final Demand Notice Date:<b><span style="padding-left: 10px;" data-dojo-attach-point="finalDemDate"></span></b></div>
+					</div>
+				</div>
+			</div>
+			<div data-dojo-attach-point="noticeDateDiv" style="display: none;padding-bottom: 10px;padding-top: 10px;">
+				<div style="display: inline;">Please indicate the <span style="font-weight: bold;" data-dojo-attach-point="noticeDateText">Final Demand Notice Date</span> that a payment must be made by: </div>
+				<div type="text" name="Remainder Date" title="Final Demand Notice Date<req>" data-dojo-attach-point="noticeDate" value="" data-dojo-type="dijit/form/DateTextBox" data-dojo-type="dijit/form/DateTextBox" data-dojo-props="datePattern:'yyyy-MM-dd', strict:true,locale: 'en-us'" required="false"></div>
+			</div>
+			<div data-dojo-attach-point="exceptionDiv" style="display: none;padding-bottom: 10px;padding-top: 10px; color: red;"><b>Please fill Deny Date, Disconnect Date, Contact Email to send notice</b></div>
+
+		</div>
+		<!-- Buttons -->
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+			<div data-dojo-attach-point="noticeBtnDiv" style="display: inline;">
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="remBtn">Reminder Notice</button>
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="suspendBtn">Suspend Notice</button>
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="disConBtn">Disconnect Notice</button>
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="finDemBtn">Final Demand Notice</button>
+			</div>
+			<div data-dojo-attach-point="actionBtnDiv" style="display: none;">
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="prevBtn" type="button">Previous</button>
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="nextBtn">Next</button>
+			</div>
+		</div>
+	</div>
+	<!-- <div data-dojo-type="dijit/Dialog" title="Send Notice" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="sendRenNotice" style="width:900px;height:200px;background-color: white;display: none;"> -->
+
+</div>

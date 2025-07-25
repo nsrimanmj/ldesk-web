@@ -1,0 +1,18 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="saveDlg" title="Create Dashboard" style="width:300px">
+		<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="saveDashForm">
+			<label style="margin-top: 10px;"><b>Group <req>: </b></label>
+			<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Group" data-dojo-attach-point="folderGroup" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=true required="true" style="width: 250px;">
+			</div>
+			<label style="margin-top: 10px;"><b>Folder <req>: </b></label>
+			<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Folder" data-dojo-attach-point="folderName" data-dojo-props="labelAttr:'name',labelType:'text'" required="true" style="width: 250px;">
+			</div>
+			<label style="margin-top: 10px;"><b>Dashboard Name <req>: </b></label>
+			<div data-dojo-type="dijit/form/ValidationTextBox" title="Dashboard Name" data-dojo-attach-point="dashName" style="width: 250px" required></div>
+			<div class="dijitDialogPaneActionBar" style="text-align:center">
+				<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelBtn" type="button">Cancel</button>
+				<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="submitBtn">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" title="Close Collection" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="closeCollectionDialog" style="width:900px; background-color: white">
+		<div class="dijitDialogPaneContentArea">
+			<div style="display: flex;flex-direction:row;justify-content: space-evenly;" data-dojo-attach-point="selecDiv">
+				<div style="width: 30%;margin-left: 30px;margin-bottom: 45px;">
+					<div style="margin-bottom: 10px;"><label style="font-weight: bold;">Closed Disposition</label></div>
+					<div class="divRadio" style="margin-bottom: 10px;" data-dojo-attach-point="r1" dispositionType="Paid">
+						<label><input type="radio" name="dispositionType" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectDispositionType" value="Paid" data-dojo-attach-point="paidClose" checked />Paid</label>
+					</div>
+					<div class="divRadio" style="margin-bottom: 10px;" data-dojo-attach-point="r2" dispositionType="Disconnected">
+						<label><input type="radio" name="dispositionType" data-dojo-type="dijit/form/RadioButton" value="Disconnected" data-dojo-attach-event="click: selectDispositionType" data-dojo-attach-point="disConClose" />Disconnected</label>
+					</div>
+					<div class="divRadio" style="margin-bottom: 10px;" data-dojo-attach-point="r3" dispositionType="Inactive Account">
+						<label><input type="radio" name="dispositionType" data-dojo-type="dijit/form/RadioButton" value="Inactive Account" data-dojo-attach-event="click: selectDispositionType" data-dojo-attach-point="inactiveClose" />Inactive Account</label>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="closeCollectionForm" style="flex: 1;">
+					<!-- Paid fields -->
+					<div data-dojo-attach-point="sectionPaid">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="paidTable" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+							<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="paidDate" title="Paid Date<req>" data-dojo-props="constraints:{min: new Date(), datePattern: 'yyyy-MM-dd'}" required="true">
+							</div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" name="Paid Amount" title="Paid Amount<req>" data-dojo-props="pattern: '^-?\\d+(\\.\\d{1,2})?$', invalidMessage: 'Enter a valid amount'" data-dojo-attach-point="paidAmt" required="true">
+							</div>
+						</div>
+					</div>
+					<!-- Disconnected fields -->
+					<div data-dojo-attach-point="sectionDisCon" style="display:none">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="disConTable" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+							<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="disconnectDate" title="Disconnect Date<req>" data-dojo-props="constraints:{min: new Date(), datePattern: 'yyyy-MM-dd'}">
+							</div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" title="Disconnect Order Id<req>" maxLength="10" data-dojo-attach-point="disconnectOrderId">
+							</div>
+						</div>
+					</div>
+					<div style="margin-top: 10px;">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="paidTable" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+							<textarea data-dojo-type="app/view/ValidationTextarea" title="Resolution Description<req>" data-dojo-attach-point="resDescription" data-dojo-props="missingMessage:'Please enter the Resolution Description', tooltipPosition:['after'], rows:3" style="width:300px" rows="3" required="true"></textarea>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Cancel</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn">Submit</button>
+		</div>
+	</div>
+</div>

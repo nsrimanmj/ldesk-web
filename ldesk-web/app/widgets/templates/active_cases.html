@@ -1,0 +1,24 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%" data-dojo-props="region:'center'">
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left',splitter:true" style="width: 15%;">
+			<div data-dojo-type="dijit/TitlePane" title="<b>Queues</b>" data-dojo-props="toggleable: false, open:true" style="overflow-y: auto;">
+				<div data-dojo-attach-point="queueTreeDiv"></div>
+			</div>
+		</div>
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+			<div data-dojo-type="dijit/TitlePane" data-dojo-attach-point="caseListPane" title="<b>Case Details</b>" data-dojo-props="toggleable: false, open:true">
+
+				<div data-dojo-attach-point="refreshDiv" class="" style="display: flex;width: 99%;justify-content: flex-end;padding-bottom: 5px;">
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="bulkEditBtn" style="padding-right:10px;display: none;">
+						<div>Bulk Edit</div>
+					</div>
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="reloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+						<div>Reload</div>
+					</div>
+				</div>
+				<div data-dojo-attach-point="caseGridDiv" style="width: 99%;height: 100%"></div>
+			</div>
+
+		</div>
+	</div>
+</div>

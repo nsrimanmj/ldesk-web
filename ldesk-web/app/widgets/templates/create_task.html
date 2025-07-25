@@ -1,0 +1,23 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Task" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="createTaskDialog" style="width:900px;background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="taskForm">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="taskTable" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+                    <div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="caseId" data-dojo-props="disabled:true" title="Case Id<req>" required="true">
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" title="Category<req>" data-dojo-attach-point="category" data-dojo-props="disabled:true" style="width: 250px" required="true">
+                        <option value="Engineering">Engineering</option>
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" title="Type<req>" data-dojo-attach-point="type" data-dojo-props="disabled:true" style="width: 250px" required="true">
+                        <option value="None">None</option>
+                    </div>
+                    <textarea data-dojo-type="app/view/ValidationTextarea" title="Description<req>" data-dojo-attach-point="descp" data-dojo-props="missingMessage:'Please enter the Description', tooltipPosition:['after'], rows:3" style="width:300px" required="true" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center" data-dojo-attach-point="dialogActionbar">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn">Submit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="${baseClass}">>
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="addUser" data-dojo-props="destroyOnClose : true,closable: true" style="width: 900px" title="Add User">
+		<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="addUserForm">
+			<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="User Name" data-dojo-attach-point="userName" data-dojo-props="missingMessage:'Please enter User Name',tooltipPosition:['after']" required="true"></div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="intermediateChanges:true, regExp:dojox.validate.regexp.emailAddress, invalidMessage:'Invalid Email', tooltipPosition:['below']" title="Email Address" style="width: 15em;" data-dojo-attach-point="emailAddress" required=true></div>
+
+				<div data-dojo-type="dijit.form.TextBox" title="Phone Extension" data-dojo-attach-point="phone"> </div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="First Name" data-dojo-attach-point="firstName" data-dojo-props="missingMessage:'Please enter First Name',tooltipPosition:['after']" required="true"></div>
+				<div data-dojo-type="dijit.form.TextBox" title="Middle" data-dojo-attach-point="middleName"> </div>
+				<div data-dojo-type="dijit/form/ValidationTextBox" title="Last Name" data-dojo-attach-point="lastName" data-dojo-props="missingMessage:'Please enter Last Name',tooltipPosition:['after']" required="true"></div>
+				<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Office" data-dojo-attach-point="officeSelect" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;" placeholder="Select an Office">
+				</div>
+				<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Shift Group" data-dojo-attach-point="shiftGroup" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;" placeholder="Select a Shift Group">
+				</div>
+				<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Profile" data-dojo-attach-point="profileSelect" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;" placeholder="Select a Profile">
+				</div>
+				<div data-dojo-type="dijit.form.TextBox" title="Field Nation User Id" data-dojo-attach-point="fnUserId"> </div>
+				<div data-dojo-type="dijit.form.TextBox" title="Telcare User Id" data-dojo-attach-point="tcUserId"> </div>
+
+				<div data-dojo-type="dijit/layout/ContentPane">
+					<div style="float: left;">
+						<div><label><B>Auth Source</B></label></div>
+						<div style="float: left" class="divRadio">
+							<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" name="authSource" data-dojo-attach-event="click: selectAuthSource" value="LDesk" data-dojo-attach-point="adduserAuthSourceLDesk" checked value="true" />LDesk</label>
+						</div>
+						<div style="float: left" class="divRadio">
+							<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" name="authSource" data-dojo-attach-event="click: selectAuthSource" value="Okta" data-dojo-attach-point="adduserAuthSourceOkta" />Okta</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="dijitDialogPaneActionBar" style="text-align:center">
+				<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelButton">Cancel</button>
+				<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="submitBtn">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

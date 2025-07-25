@@ -1,0 +1,18 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="addFileDlg" data-dojo-props="destroyOnClose: true, closable: true" style="width: 900px;min-width: 900px;max-width: 900px;" title="Add File">
+
+		<form enctype="multipart/form-data" data-dojo-attach-point="uploadForm">
+
+			<input type="file" name="file" data-dojo-type="dojox/form/Uploader" data-dojo-attach-point="fileUploader" multiple="true" data-dojo-props="uploadOnSelect: false, force: 'html5'" />
+
+			<div data-dojo-attach-point="fileList" style="margin-top: 1em; height:15em;width:90%"></div>
+
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="uploadButton" type="submit">Upload File</button>
+
+			<div data-dojo-attach-point="status"></div>
+		</form>
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelBtn" type="button">Cancel</button>
+		</div>
+	</div>
+</div>

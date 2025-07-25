@@ -1,0 +1,10 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/TitlePane" data-dojo-attach-point="userPane" title="<b>Active Users</b>" data-dojo-props="toggleable: false, open:true">
+		<div data-dojo-attach-point="refreshDiv" class="" style="display: flex;width: 99%;justify-content: flex-end;padding-bottom: 5px;">
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="reloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+				<div>Reload</div>
+			</div>
+		</div>
+		<div data-dojo-attach-point="userDiv" style="width: 99%;height: 100%"></div>
+	</div>
+</div>

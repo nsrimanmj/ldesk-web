@@ -1,0 +1,23 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Cancel Task" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="cancelTaskDlg" style="width:40%; background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="exceptionDiv" style="display: none;">
+                <div data-dojo-type="dijit/Fieldset" data-dojo-attach-point="exceptionPane" data-dojo-props="toggleable:false" style="width: 50%;">
+                    <legend style="color: red;">
+                        <b>Can't Cancel Task</b>
+                    </legend>
+                    <!-- <div data-dojo-attach-point="exceptionContent"></div> -->
+                </div>
+            </div>
+            <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="cancelTaskForm" style="display: block">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:1,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="cancelTaskTable" style="margin-left: 1%; margin-right: 1%">
+                    <textarea data-dojo-type="app/view/ValidationTextarea" title="Resolution<req>" data-dojo-attach-point="resCancel" data-dojo-props="missingMessage:'Please enter the Resolution', tooltipPosition:['after'], rows:3" style="width:300px" required="true" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center" data-dojo-attach-point="dialogActionbar">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn" type="button">Submit</button>
+        </div>
+    </div>
+</div>

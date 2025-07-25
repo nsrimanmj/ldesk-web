@@ -1,0 +1,101 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="createCaseDialog" style="width:65%; background-color: white">
+		<div class="dijitDialogPaneContentArea">
+			<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseMgmtForm">
+				<div data-dojo-type="dijit/TitlePane" title="Basic Information" data-dojo-attach-point="caseMgmtDiv" data-dojo-props="open:true">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form1">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" style="padding-bottom: 0.4em;">
+							<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="account_name" title="App Id<req>" placeholder="Enter AppId" data-dojo-props="missingMessage:'Please enter AccountId',tooltipPosition:['after']" value="${accountId}" required="true" disabled></div>
+							<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="srvNumber" title="Service Number${reqLabel}" colspan=2 placeholder="Select Service Number" data-dojo-props="labelAttr:'name',searchAttr:'name' " required="false"></div>
+							<div data-dojo-type="dijit/form/FilteringSelect" title="Category<req>" data-dojo-attach-point="caseCategory" placeholder="Select Category" data-dojo-props="labelAttr:'categoryName',labelType:'text'" sortByLabel=true required="true" style="width: 200px;"></div>
+							<div data-dojo-type="dijit/form/FilteringSelect" title="Type<req>" data-dojo-attach-point="caseSubCategory" placeholder="Select Category Type" data-dojo-props="labelAttr:'type',labelType:'text'" sortByLabel=true style="width: 200px;" required="false"></div>
+							<div data-dojo-type="dijit/form/FilteringSelect" title="Sub Type${reqLabel}" data-dojo-attach-point="caseSubType" placeholder="Select Category Sub Type" data-dojo-props="labelAttr:'subType',labelType:'text'" sortByLabel=true style="width: 200px;" required="false"></div>
+							<textarea data-dojo-type="app/view/ValidationTextarea" title="Description<req>" data-dojo-attach-point="caseDescription" colspan=2 placeholder="Enter Description" data-dojo-props="missingMessage:'Please enter Description', tooltipPosition:['after'], rows:3" style="width:300px" required="true" rows="3"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div data-dojo-type="dijit/TitlePane" title="Contact Information" data-dojo-attach-point="caseContactDiv" data-dojo-props="open:false">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form2">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="missingMessage:'Please enter contactName',tooltipPosition:['after']" name="contactName" title="Contact Name<req>" data-dojo-attach-point="contactName" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=30 data-dojo-props="missingMessage:'Please enter contactNumber',tooltipPosition:['after']" name="contactNumber" title="Contact Number<req>" data-dojo-attach-point="contactNum" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="intermediateChanges:true, regExp:dojox.validate.regexp.emailAddress, invalidMessage:'Invalid Email', missingMessage:'Please provide valid email address',tooltipPosition:['after']" name="contactEmail" title="Contact Email<req>" placeHolder="You@example.com" data-dojo-attach-point="contactMail" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="intermediateChanges:true" name="locContactName" title="Location Contact Name${reqLabel}" data-dojo-attach-point="locContactName" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=30 data-dojo-props="intermediateChanges:true" name="locContactNumber" title="Local Contact Number${reqLabel}" data-dojo-attach-point="locContactNum" required="true"></div>
+							<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Preferred Contact Method<req>" placeholder="Select Contact method" data-dojo-attach-point="contactMethod" sortByLabel=true required="true" style="width: 200px;"></div>
+							<div data-dojo-type="dijit/form/TextBox" maxLength=256 data-dojo-props="intermediateChanges:true" title="Client Internal Ticket #" data-dojo-attach-point="internalTktNum"></div>
+							<div data-dojo-type="app/view/ValidationTextarea" title="Additional Emails" data-dojo-attach-point="caseAddEmail" data-dojo-props="intermediateChanges:true,regExp:this.lingoController.validateEmails(), invalidMessage:'Please provide comma separated email addresses', tooltipPosition:['after'],trim:true,rows:2" rows="2" style="width: 250px;"></div>
+						</div>
+					</div>
+				</div>
+
+				<div data-dojo-type="dijit/TitlePane" title="Location Information" data-dojo-attach-point="caseLocDiv" data-dojo-props="open:false">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form3">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+							<div data-dojo-type="app/view/ValidationTextarea" title="Location Access Hours(From-To)${reqLabel}" data-dojo-attach-point="locHr" data-dojo-props="rows:2,invalidMessage:'Please Enter Location Access Hours(From-To)'" rowspan=2 style="width:250px" required="false"></div>
+							<div data-dojo-type="dijit/form/SimpleTextarea" maxLength=256 title="Service Address" data-dojo-attach-point="srvAddress" data-dojo-props="rows:4" style="width:250px" disabled></div>
+
+							<div data-dojo-type="dijit/layout/ContentPane" title="Address Line1${reqLabel}" data-dojo-attach-point="addLine1" style="display: inline;">
+								<div><textarea data-dojo-type="app/view/ValidationTextarea" maxLength="100" title="Address Line1${reqLabel}" data-dojo-attach-point="addressLine1" data-dojo-props="rows:2" style="width: 250px;" required="true"></textarea>
+								</div>
+							</div>
+							<div data-dojo-type="dijit/layout/ContentPane" title="Address Line2" data-dojo-attach-point="addLine2" style="display: inline;">
+								<div><textarea data-dojo-type="app/view/ValidationTextarea" maxLength="100" title="Address Line2" data-dojo-attach-point="addressLine2" data-dojo-props="rows:2" style="width: 250px;" required="false"></textarea>
+								</div>
+							</div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="city" title="City${reqLabel}" required="true">
+							</div>
+							<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="state" placeholder="Select State/Province" title="State${reqLabel}" required="true">
+							</div>
+							<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="country" placeholder="Select Country" title="Country${reqLabel}" required="true">
+								<option value=""></option>
+								<option value="US">US</option>
+								<option value="CA">CA</option>
+							</div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="zipCode" title="Zip/Postal Code${reqLabel}" required="true">
+							</div>
+							<div data-dojo-type="dijit/form/CheckBox" title="Weekend Access" data-dojo-attach-point="weekendAccess"> </div>
+							<div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Time Zone<req>" data-dojo-attach-point="timeZone" placeholder="Select Time Zone" sortByLabel=true required="true" style="width: 200px;"></div>
+						</div>
+					</div>
+				</div>
+
+				<div data-dojo-type="dijit/TitlePane" title="Dispatch Information" data-dojo-attach-point="caseDispatchDiv" data-dojo-props="open:false">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form4">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2, customClass:'ldesk-tbl'">
+							<div data-dojo-type="dijit/form/CheckBox" title="Accept Dispatch Policy" data-dojo-attach-point="dispatchPolicy"> </div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 title="Dispatch Authorized By" data-dojo-attach-point="dispatchAuthBy" style="width:250px" required="false"></div>
+						</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/TitlePane" title="Equipment Contact Information" data-dojo-attach-point="caseEquipmentDiv" data-dojo-props="open:false" style="display: none;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form5">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2, customClass:'ldesk-tbl', spanLabel:true">
+							<div data-dojo-type="dijit/layout/ContentPane" title="Additional Information" data-dojo-attach-point="addInfoCP" style="display: inline;">
+								<div data-dojo-type="app/view/ValidationTextarea" maxLength="500" data-dojo-attach-point="addInfo" data-dojo-props="rows:3" style="width:250px"></div>
+							</div>
+							<div data-dojo-type="dijit/layout/ContentPane" title="Shipping Address<req>" data-dojo-attach-point="shpAddressCP" style="display: inline;">
+								<div data-dojo-type="app/view/ValidationTextarea" maxLength="255" data-dojo-attach-point="shippingAddress" placeholder="Enter Shipping address" data-dojo-props="missingMessage:'Please enter shipping address', tooltipPosition:['after'], rows:3" style="width:250px" required="true" rows="3"></div>
+							</div>
+							<div data-dojo-type="dijit/layout/ContentPane" title="Make/Model/SN and Qty<req>" data-dojo-attach-point="snQtyCP" style="display: inline;">
+								<div data-dojo-type="app/view/ValidationTextarea" maxLength="255" data-dojo-attach-point="modelQty" data-dojo-props="missingMessage:'Please enter some text', tooltipPosition:['after'], rows:3" style="width:250px" required="true" rows="3"></div>
+							</div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="missingMessage:'Please enter contactName',tooltipPosition:['after']" name="eqContactName" title="Contact Name<req>" data-dojo-attach-point="eqContactName" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=30 data-dojo-props="missingMessage:'Please enter contactNumber',tooltipPosition:['after']" name="eqContactNumber" title="Contact Phone<req>" data-dojo-attach-point="eqContactNum" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="intermediateChanges:true, regExp:dojox.validate.regexp.emailAddress, invalidMessage:'Invalid Email', missingMessage:'Please provide valid email address',tooltipPosition:['after']" name="eqContactEmail" title="Contact Email<req>" placeHolder="You@example.com" data-dojo-attach-point="eqContactMail" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="intermediateChanges:true" name="clientContactName" title="Client Contact Name<req>" data-dojo-attach-point="clientContactName" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=30 data-dojo-props="intermediateChanges:true" name="clientContactNumber" title="Client Contact Phone<req>" data-dojo-attach-point="clientContactNum" required="true"></div>
+							<div data-dojo-type="dijit/form/ValidationTextBox" maxLength=256 data-dojo-props="intermediateChanges:true, regExp:dojox.validate.regexp.emailAddress, invalidMessage:'Invalid Email', missingMessage:'Please provide valid email address',tooltipPosition:['after']" name="clientContactEmail" title="Client Contact Email<req>" placeHolder="You@example.com" data-dojo-attach-point="eqClientContactMail" required="true"></div>
+							<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="eqStatus" title="Equipment Status<req>" placeholder="Select Equipment Status" data-dojo-props="labelAttr:'name',searchAttr:'name' " required="true"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn">Submit</button>
+		</div>
+	</div>
+</div>

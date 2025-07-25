@@ -1,0 +1,124 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dojox/widget/TitleGroup">
+		<!--<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Manage Users</b>'" selected="true" data-dojo-attach-point="manageUsersPane" style="width: 100%">-->
+		<div style="margin-top: 1em;">
+			<!-- Row 1 -->
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="width:70%;display:inline-block;vertical-align: middle">
+				<legend><b>Available Users</b> </legend>
+				<div data-dojo-attach-point="availableUsersDiv" style="margin-top: 0.1em; height:250px;display:block;border:0px;width:100%"></div>
+			</div>
+			<!--<div style= "display:inline-block;">&nbsp;</div>-->
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="width:10%;" class="action-btn">
+				<legend><b>Actions</b> </legend>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="addNewUser" action="user-create">
+					<div style="width:150px">Add New</div>
+				</div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="editUser" data-dojo-props="disabled:true" action="user-edit">
+					<div style="width:150px">Edit</div>
+				</div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="inactivateUser" data-dojo-props="disabled:true" action="user-inactivate">
+					<div style="width:150px">Inactivate</div>
+				</div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="changePassword" data-dojo-props="disabled:true" action="reset-password">
+					<div style="width:150px">Password</div>
+				</div>
+				<div style="margin-top: 10px; margin-bottom: 8px"><label style="font-weight: bold; display: inline "><input name="filterActiveOnly" data-dojo-type="dijit/form/CheckBox" value="true" data-dojo-attach-point="filterActiveOnly" checked>Active Only</label>
+					</input>
+				</div>
+
+				<div style="display:inline-block;">
+					<b>Search For User</b>&nbsp;
+				</div>
+				<div data-dojo-type="dijit.form.TextBox" data-dojo-props="intermediateChanges:false" title="User Name" style="margin-bottom:3px" data-dojo-attach-point="findUser"></div>
+
+				<div style="padding-bottom:3px;text-align:center;width:100%">
+					<div input type="button" data-dojo-type="dijit.form.Button" data-dojo-attach-point="findUserBtn">
+						Find!</div>
+					<div input type="button" data-dojo-type="dijit.form.Button" data-dojo-attach-point="listAllUsersBtn">List All</div>
+				</div>
+			</div>
+		</div> <!-- END Row 1 -->
+		<div style="margin-top: 2em;">
+			<!-- Row 2 -->
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="width:30%;display:inline-block;vertical-align: middle">
+				<legend><b>Available Groups</b> </legend>
+				<div data-dojo-attach-point="availableGroupsDiv" style="margin-top: 0.1em; height:150px;display:block;border:0px;width:100%;vertical-align: middle">
+				</div>
+			</div>
+			<div style="width:25%;display:inline-block;vertical-align: middle;text-align: center">
+				<div style="padding: 10px;">
+					<label><B>Is Agent On Esclation Duty?</B></label>
+					<div class="divRadio" style="padding: 5px;display:inline-block;">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectEsclation" checked value="true" name="status" value="No" data-dojo-attach-point="esclationDutyNo" />No</label>
+					</div>
+					<div class="divRadio" style="padding: 5px;display:inline-block;">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectEsclation" name="status" value="Yes" data-dojo-attach-point="esclationDutyYes" />Yes</label>
+					</div>
+				</div>
+				<div style="padding: 10px;">
+					<label><B>What is the Agent's level?</B></label>
+					<div style="padding: 5px;display:inline-block;" class="divRadio">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectAgentLevel" checked value="true" name="level" value="1" data-dojo-attach-point="agentLevel1" />1</label>
+					</div>
+					<div style="padding: 5px;display:inline-block;" class="divRadio">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectAgentLevel" name="level" value="2" data-dojo-attach-point="agentLevel2" />2</label>
+					</div>
+					<div style="padding: 5px;display:inline-block;" class="divRadio">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectAgentLevel" name="level" value="3" data-dojo-attach-point="agentLevel3" />3</label>
+					</div>
+					<div style="padding: 5px;display:inline-block;" class="divRadio">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectAgentLevel" name="level" value="4" data-dojo-attach-point="agentLevel4" />4</label>
+					</div>
+					<div style="padding: 5px;display:inline-block;" class="divRadio">
+						<label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" data-dojo-attach-event="click: selectAgentLevel" name="level" value="5" data-dojo-attach-point="agentLevel5" />5</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="addGroupBtn" data-dojo-props="disabled:true" data-style="align:center;width:20%;" action="user-add-group">
+						<div style="width:80px">Add</div>
+					</div>
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="removeGroupBtn" data-dojo-props="disabled:true" data-style="align:center;width:20%" action="user-remove-group">
+						<div style="width:80px">Remove</div>
+					</div>
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="editGroupBtn" data-dojo-props="disabled:true" data-style="align:center;width:20%" action="user-edit-group">
+						<div style="width:80px">Edit</div>
+					</div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="width:38.2%;display:inline-block;vertical-align: middle">
+				<legend><b>Selected Groups</b> </legend>
+				<div data-dojo-attach-point="selectedGroupsDiv" style="margin-top: 0.1em; height:150px;display:block;border:0px;width:100%"></div>
+			</div>
+		</div> <!-- END Row 2 -->
+		<div style="margin-top: 2em;">
+			<!-- Row 3 -->
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="width:30%;display:inline-block;vertical-align: middle">
+				<legend><b>Available Queues</b> </legend>
+				<div style="padding-bottom:20px">
+					<label style="display:inline-block;font-weight:bold;padding-right:10px">User Groups</label>
+					<div data-dojo-type="dijit/form/FilteringSelect" title="Group" placeholder="Select a Group" data-dojo-attach-point="availableGroupSelect" data-dojo-props="labelAttr:'groupName', searchAttr:'groupName', labelType:'text'" style="display:inline-block;width: 200px;max-height: 100px">
+					</div>
+				</div>
+				<div data-dojo-attach-point="availableQueuesDiv" style="margin-top: 0.1em; height:150px;display:block;border:0px;width:100%;vertical-align: middle">
+				</div>
+			</div>
+			<div style="width:25%;display:inline-block;vertical-align: middle;text-align: center">
+				<div class="row">
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="addQueueBtn" data-dojo-props="disabled:true" data-style="align:center;width:20%;" action="user-add-queue">
+						<div style="width:80px">Add</div>
+					</div>
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="removeQueueBtn" data-dojo-props="disabled:true" data-style="align:center;width:20%" action="user-remove-queue">
+						<div style="width:80px">Remove</div>
+					</div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="width:38.2%;display:inline-block;vertical-align: middle">
+				<legend><b>Selected Queues</b> </legend>
+				<div data-dojo-attach-point="selectedQueuesDiv" style="margin-top: 0.1em; height:150px;display:block;border:0px;width:100%"></div>
+			</div>
+		</div>
+		<div data-dojo-type="app/widgets/lingoChangeHistory" data-dojo-attach-point="lingoChangeHistory" style="margin-top: 2em;"></div>
+
+	</div>
+</div>

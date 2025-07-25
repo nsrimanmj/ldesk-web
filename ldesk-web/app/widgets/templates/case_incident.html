@@ -1,0 +1,83 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Incident Management" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="incidentDialog" style="width:1000px; resize:none; background-color: white">
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="incidentPane">
+            <div data-dojo-attach-point="incidentMgmtDiv" data-dojo-type="dijit/TitlePane" title="Step #1" data-dojo-props="open:true">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2">
+                    <!--
+                    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="accountPane" title="Account">
+                        <div style="display: inline-block">
+-->
+                    <div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="account_name" title="Account" placeholder="Enetr AccountId" data-dojo-props="tooltipPosition:['after']" value="${accountId}"></div>
+                    <!--
+                            <div data-dojo-type="dijit/form/Button" title="Search" data-dojo-attach-point="acct_search">Search</div>
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="srcNumPane" title="Service Number">
+                        <div style="display: inline-block">
+-->
+                    <div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="srv_number" title="Service Number" placeholder="Select Service Number" data-dojo-props="tooltipPosition:['after']"></div>
+                    <!--
+                            <div data-dojo-type="dijit/form/Button" title="Search" data-dojo-attach-point="srv_num_search">Search</div>
+                        </div>
+                    </div>
+-->
+                    <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Category" data-dojo-attach-point="incidentCategory" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=true required="true" style="width: 200px;">
+                        <option selected>--None--</option>
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Sub Category" data-dojo-attach-point="incidentSubCategory" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=true required="true" style="width: 200px;">
+                        <option selected>--None--</option>
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Sub Category Tier3" data-dojo-attach-point="incidentSubCategoryT3" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=true required="true" style="width: 200px;">
+                        <option selected>--None--</option>
+                    </div>
+                    <div data-dojo-type="dijit/form/SimpleTextarea" title="Description" data-dojo-attach-point="incidentDescription" data-dojo-props="rows:4" style="width:250px"></div>
+
+                </div>
+            </div>
+
+            <div data-dojo-type="dijit/TitlePane" title="Step #2" data-dojo-attach-point="incidentContactDiv" data-dojo-props="open:false">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2">
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-props="intermediateChanges:true" name="contactName" title="Contact Name" data-dojo-attach-point="incContactName" value=""></div>
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-props="intermediateChanges:true" name="contactNumber" title="Contact Number" data-dojo-attach-point="incContactNum" value=""></div>
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-props="intermediateChanges:true" name="contactEmail" title="Contact Email" placeHolder="You@example.com" data-dojo-attach-point="incContactMail" value=""></div>
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-props="intermediateChanges:true" name="locContactName" title="Local Contact Name" data-dojo-attach-point="incLocContactName" value=""></div>
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-props="intermediateChanges:true" name="locContactNumber" title="Local Contact Number" data-dojo-attach-point="incLocContactNum" value=""></div>
+                    <div data-dojo-type="dijit/form/SimpleTextarea" title="Additional Emails" data-dojo-attach-point="incidentAddEmails" data-dojo-props="rows:4" style="width:250px"></div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Preferred Contact Method" data-dojo-attach-point="incidentContactMethod" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=true required="true" style="width: 200px;">
+                        <option selected>--None--</option>
+                    </div>
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-props="intermediateChanges:true" title="Client Internal Ticket" data-dojo-attach-point="incInternalTktNum" value=""></div>
+                </div>
+            </div>
+
+            <div data-dojo-type="dijit/TitlePane" title="Step #3" data-dojo-attach-point="incidentLocDiv" data-dojo-props="open:false">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2">
+                    <div data-dojo-type="dijit/form/SimpleTextarea" title="Location Access Hours(From-To)" data-dojo-attach-point="incidentLocHr" data-dojo-props="rows:4" style="width:250px"></div>
+                    <div data-dojo-type="dijit/form/SimpleTextarea" title="Service Address" data-dojo-attach-point="incidentSrvAdd" data-dojo-props="rows:4" style="width:250px"></div>
+                    <div data-dojo-type="dijit/layout/ContentPane" style="padding:0px;margin-top: -10px" data-dojo-attach-point="weekendAccessPane">
+                        <label><b>Weekend Access</b></label>
+                        <div data-dojo-type="dijit/form/CheckBox" title="Weekend Access" data-dojo-attach-point="weekendAccess"> </div>
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Time Zone" data-dojo-attach-point="incidentTimeZone" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=true required="true" style="width: 200px;">
+                        <option selected>--None--</option>
+                    </div>
+                    <div data-dojo-type="dijit/form/TextBox" title="Special Access Instructions" data-dojo-attach-point="incidentSpclInstructions" style="width:250px"></div>
+                </div>
+            </div>
+
+            <div data-dojo-type="dijit/TitlePane" title="Step #4" data-dojo-attach-point="incidentDispatchDiv" data-dojo-props="open:false">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2">
+                    <div data-dojo-type="dijit/layout/ContentPane" style="padding:0px;margin-top: -10px" data-dojo-attach-point="dispatchPane">
+                        <label><b>Accept Dispatch Policy</b></label>
+                        <div data-dojo-type="dijit/form/CheckBox" title="Accept Dispatch Policy" data-dojo-attach-point="dispatchPolicy"> </div>
+                    </div>
+                    <div data-dojo-type="dijit/form/TextBox" title="Dispatch Authorized By" data-dojo-attach-point="incidentDisAuthBy" style="width:250px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="incCloseBtn">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="incSubmitBtn">Submit</button>
+        </div>
+    </div>
+</div>

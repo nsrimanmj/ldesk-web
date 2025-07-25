@@ -1,0 +1,356 @@
+<div class="${baseClass}" style="height: 100%;width: 100%;">
+	<div class="headerTitle" style="display: inline-block; width: 100%; padding-top: 10px;padding-bottom: 10px;background: #fffff0;margin-bottom: 10px; border: 1px solid #b5bcc7;">
+		<div style="display: inline-block;width: 40%;vertical-align: middle;">
+			<label style="padding-left: 10px;"><b>Work Order</b></label>
+			<label style="padding-left: 10px; font-size: 14px;"> <b><span data-dojo-attach-point="WONumSpan"></span></b></label>
+		</div>
+
+		<div style="display: inline-flex;width: 55%;text-align: right;justify-content: right;align-items: center;">
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="openFNBtn" style="padding-left: 5px;display: none;">Open In Field Nation</div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="resendFNBtn" action="wo-create" recordType="${recordType}" style="padding-left: 5px;display: none;">Review & Send to Field Nation</div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="refreshBtn" style="padding-left: 5px;">Refresh</div>
+			<div data-dojo-type="dijit/form/DropDownButton" data-dojo-attach-point="woActionBtn" style="padding-left: 5px;" data-dojo-props="disabled:false">
+				<span>Actions</span>
+				<div data-dojo-type="dijit/DropDownMenu" data-dojo-attach-point="woActionMenu">
+					<div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="closeWOBtn" action="wo-close" recordType="${recordType}">Close Work Order</div>
+					<div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="rescheduleBtn" action="wo-reschedule" recordType="${recordType}">Request For Reschedule</div>
+					<div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="completeWOBtn" action="wo-complete" recordType="${recordType}">Complete Work Order</div>
+					<div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="newNotesBtn" action="wo-add-note" recordType="${recordType}">New Notes</div>
+					<div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="cancelWOBtn" action="wo-cancel" recordType="${recordType}">Cancel Work Order</div>
+					<div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="requestCancelWOBtn" action="wo-request-cancel" recordType="${recordType}">Request For Cancellation </div>
+					<div data-dojo-type="dijit/MenuItem" data-dojo-attach-point="createICBtn" action="wo-create-charge-item" recordType="${recordType}">Create Itemized Charges </div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="WOBillingBtn" style="padding-left: 5px;display: none" action="wo-billing" recordType="${recordType}">Complete Billing</div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="WOEditBtn" data-dojo-props="disabled:false" style="padding-left: 5px;" action="wo-edit" recordType="${recordType}">Edit </div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="WOSaveBtn" style="display:none; padding-left: 5px;">Save</div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="WODiscardBtn" style="display:none; padding-left: 5px;"> Discard Changes</div>
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="WOCloseBtn" data-dojo-props="disabled:false" style="padding-left: 5px;"> Close Window</div>
+		</div>
+	</div>
+	<div style="height: 90%; width:100%;">
+		<div data-dojo-attach-point="errorDiv" style="display: none;height: 10px;width: 100%;text-align: center;align-content: center;justify-content: center;align-items: center; color: red;font-weight: bold;"></div>
+		<div data-dojo-attach-point="escalationEnabledDiv" style="display: none;height: 10px;width: 100%;text-align: center;align-content: center;justify-content: center;align-items: center; color: red;font-weight: bold;"></div>
+		<div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;" data-dojo-attach-point="viewWOTabContainer">
+			<div data-dojo-type="dijit/layout/ContentPane" title="Details" data-dojo-attach-point="WODetails" data-dojo-props="selected:true">
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Case Overview</b>',open:true" data-dojo-attach-point="caseMgmntPanel" style="padding-top: 10px; width: 41%; display: inline-block; vertical-align: top;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseMgmntForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="caseMgmtTable">
+							<div data-dojo-type="dijit.form.TextBox" title="Case Number" data-dojo-attach-point="caseNumber"></div>
+							<div data-dojo-type="dijit.form.TextBox" title="Case Owner" data-dojo-attach-point="ownerName">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Case Status" data-dojo-attach-point="status">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Service Number" data-dojo-attach-point="serviceNumber">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Service Priority" data-dojo-attach-point="servicePriority">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Time Zone" data-dojo-attach-point="timeZone">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Queue" data-dojo-attach-point="queueName">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Category" data-dojo-attach-point="categoryName">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Type" data-dojo-attach-point="type">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Sub-Type" data-dojo-attach-point="subType">
+							</div>
+							<div><textarea data-dojo-type="dijit/form/SimpleTextarea" title="Service Address" data-dojo-attach-point="serviceAddress" data-dojo-props="rows:2" style="width: 250px;"></textarea></div>
+						</div>
+						<div class="center">
+							<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="viewCaseBtn">View Case Details</button>
+						</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Work Order Overview</b>',open:true" data-dojo-attach-point="WOMgmntPanel" style="padding-top: 10px; width: 58%; display: inline-block; vertical-align: top;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="WOMgmntForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="ccsWOMgmntTable" style="display: none;">
+							<div data-dojo-type="dijit.form.TextBox" title="Work Order Record Type" data-dojo-attach-point="workOrderType">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Queue" data-dojo-attach-point="ccsqueueName">
+							</div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Owner" data-dojo-attach-point="ccsownerId" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'">
+							</div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Dispatch Type" data-dojo-attach-point="ccsdispatchType"></div>
+							<!-- <div data-dojo-type="dijit.form.TextBox" title="Dispatch Date/ETR" data-dojo-attach-point="ccsdispatchDate">
+							</div> -->
+							<div data-dojo-type="dijit/layout/ContentPane" title="Dispatch Date/ETR" data-dojo-attach-point="ccsDatePane">
+								<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="ccsDispatchDate1" title="Date" data-dojo-props="constraints:{min: new Date(),datePattern: 'yyyy-MM-dd'}"></div>
+								<div data-dojo-type="dijit/form/TimeTextBox" data-dojo-attach-point="ccsDispatchTime1" data-dojo-props="constraints: {timePattern: 'HH:mm:ss', clickableIncrement: 'T00:15:00', visibleIncrement: 'T00:15:00', visibleRange: 'T01:00:00' }">
+								</div>
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" maxLength="50" title="CCS Work Order Number" data-dojo-attach-point="ccsexternalTktNum"></div>
+							<div data-dojo-type="dijit.form.TextBox" title="Status" data-dojo-attach-point="ccsstatus">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Sub-Status" data-dojo-attach-point="ccssubStatus">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="App ID" data-dojo-attach-point="ccsappId">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Account Name" data-dojo-attach-point="ccsaccount">
+							</div>
+							<div data-dojo-type="dijit/layout/ContentPane" title="Location Access Hours" data-dojo-attach-point="locAcc" style="display: inline;">
+								<div><textarea data-dojo-type="app/view/ValidationTextarea" maxLength="60" title="Location Access Hours" data-dojo-attach-point="ccsaccessHours" data-dojo-props="rows:2,disabled:true" style="width: 250px;" required="false"></textarea>
+								</div>
+							</div>
+						</div>
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="carrierWOMgmntTable" style="display: none;">
+							<div data-dojo-type="dijit.form.TextBox" title="Work Order Type" data-dojo-attach-point="carrierworkOrderType">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Queue" data-dojo-attach-point="carrierqueueName"></div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Owner" data-dojo-attach-point="carrierownerId" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'"></div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Dispatch Type" data-dojo-attach-point="carrierdispatchType"></div>
+							<!-- <div data-dojo-type="dijit.form.TextBox" title="Dispatch Date/ETR" data-dojo-attach-point="carrierdispatchDate">
+							</div> -->
+							<div data-dojo-type="dijit/layout/ContentPane" title="Dispatch Date/ETR">
+								<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="carrierDispatchDate1" title="Date" data-dojo-props="constraints:{min: new Date(),datePattern: 'yyyy-MM-dd'}"></div>
+								<div data-dojo-type="dijit/form/TimeTextBox" data-dojo-attach-point="carrierDispatchTime1" data-dojo-props="constraints: {timePattern: 'HH:mm:ss', clickableIncrement: 'T00:15:00', visibleIncrement: 'T00:15:00', visibleRange: 'T01:00:00' }">
+								</div>
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" maxLength="50" title="Carrier Name" data-dojo-attach-point="carrierName">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" maxLength="50" title="Carrier Contact Number" data-dojo-attach-point="carrierContactName">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" maxLength="50" title="Carrier Ticket Number" data-dojo-attach-point="carrierexternalTktNum">
+							</div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Status" data-dojo-attach-point="carrierstatus">
+							</div>
+							<div><textarea data-dojo-type="dijit.form.SimpleTextarea" maxLength="255" title="Special Access Instructions" data-dojo-attach-point="carrierSpclInstructions" data-dojo-props="rows:2" style="width: 250px;"></textarea>
+							</div>
+							<!-- <div data-dojo-type="dijit.form.TextBox" title="Sub-Status" data-dojo-attach-point="carriersubStatus">
+							</div> -->
+						</div>
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="fnWOMgmntTable" style="display: none;">
+							<div data-dojo-type="dijit.form.TextBox" title="Work Order Type" data-dojo-attach-point="fnworkOrderType">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Queue" data-dojo-attach-point="fnqueueName">
+							</div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Owner" data-dojo-attach-point="fnownerId" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'"></div>
+							<div data-dojo-type="dijit.form.FilteringSelect" title="Dispatch Type" data-dojo-attach-point="fndispatchType"></div>
+
+							<div data-dojo-type="dijit.form.TextBox" title="Field Nation Work Order Number" data-dojo-attach-point="fnexternalTktNum">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Status" data-dojo-attach-point="fnstatus">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Sub-Status" data-dojo-attach-point="fnsubStatus">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Schedule Type" data-dojo-attach-point="fnscheduleType">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Dispatch Start Date/Time" data-dojo-attach-point="fndispatchStart">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Dispatch End Date/Time" data-dojo-attach-point="fndispatchEnd">
+							</div>
+							<div data-dojo-type="dijit/form/CheckBox" title="Hard Start" data-dojo-attach-point="fnhardStart">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Contact Information</b>',open:true" data-dojo-attach-point="contactInfoPanel" style="padding-top: 10px; width: 31%; display: inline-block; vertical-align: top;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="contactInfoForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:1,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="WOcontactInfoTable">
+							<div data-dojo-type="dijit.form.TextBox" title="Work Order Manager" data-dojo-attach-point="woManager"></div>
+							<div data-dojo-type="dijit.form.TextBox" title="Primary Dispatch Contact Name" data-dojo-attach-point="dispatchConName">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Primary Dispatch Contact #" data-dojo-attach-point="dispatchConNo">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Primary Dispatch Contact Email" data-dojo-attach-point="dispatchEmail">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Repair Updates</b>',open:true" data-dojo-attach-point="repairUpdatesPanel" style="padding-top: 10px;display: inline-block; vertical-align: top; width: 68%;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="repairUpdatesForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="repairUpdatesTable">
+							<div data-dojo-type="dijit.form.TextBox" title="Open Code" data-dojo-attach-point="openCode" maxlength="20">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Close Code" data-dojo-attach-point="closeCode" maxlength="20">
+							</div>
+							<div data-dojo-type="dijit/layout/ContentPane" title="Scope of Work" data-dojo-attach-point="scofwork" style="display: inline;">
+								<div><textarea data-dojo-type="app/view/ValidationTextarea" maxlength="5000" title="Scope of Work" data-dojo-attach-point="scopeOfWork" data-dojo-props="rows:2,disabled:true" style="width: 300px;" required="false"></textarea>
+								</div>
+							</div>
+							<div data-dojo-type="dijit/layout/ContentPane" title="Resolution Description" data-dojo-attach-point="resDescp" style="display: inline;">
+								<div><textarea data-dojo-type="app/view/ValidationTextarea" maxlength="255" title="Resolution Description" data-dojo-attach-point="resDescr" data-dojo-props="rows:2,disabled:true" style="width: 300px;" required="false"></textarea>
+								</div>
+							</div>
+							<div><textarea data-dojo-type="dijit.form.SimpleTextarea" title="Confidential Information" data-dojo-attach-point="confidentialInfo" data-dojo-props="rows:2" style="width: 300px;"></textarea></div>
+							<div><textarea data-dojo-type="dijit.form.SimpleTextarea" title="Billing Charge Note" data-dojo-attach-point="billChargeNote" data-dojo-props="rows:2" style="width: 300px;"></textarea></div>
+						</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Location Information</b>',open:true" data-dojo-attach-point="locMgmntPanel" style="padding-top: 10px; width: 99%;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="locMgmntForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:5,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="locMgmntTable">
+							<div data-dojo-type="dijit/form/CheckBox" title="Covid-19 Restrictions" data-dojo-attach-point="covid19">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="COI" data-dojo-attach-point="coi">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Location AppID" data-dojo-attach-point="appId">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Account" data-dojo-attach-point="account">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="DBA" data-dojo-attach-point="dba">
+							</div>
+							<div><textarea data-dojo-type="dijit.form.SimpleTextarea" title="Location Access Hours" data-dojo-attach-point="accessHours" data-dojo-props="rows:2" style="width: 250px;"></textarea>
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Location Type" data-dojo-attach-point="locationType">
+							</div>
+							<div><textarea data-dojo-type="dijit.form.SimpleTextarea" title="Address Line1" data-dojo-attach-point="addressLine1" data-dojo-props="rows:2" style="width: 250px;"></textarea>
+							</div>
+							<div><textarea data-dojo-type="dijit.form.SimpleTextarea" title="Address Line2" data-dojo-attach-point="addressLine2" data-dojo-props="rows:2" style="width: 250px;"></textarea>
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="City" data-dojo-attach-point="city">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="State/Province" data-dojo-attach-point="state">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Country" data-dojo-attach-point="country">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Zip/Postal Code" data-dojo-attach-point="zipCode">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Billing Information</b>',open:true" data-dojo-attach-point="billingInfoPanel" style="padding-top: 10px; width: 99%;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="billingInfoForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:5,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="billingInfoTable">
+							<div data-dojo-type="dijit.form.TextBox" title="Billing System" data-dojo-attach-point="billingSystem"></div>
+							<div data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="waiveDispatchFee" title="Waive DispatchFee"></div>
+							<div data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="isEscalation" title="Escalation"></div>
+							<div data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="billing" title="Charges Applied to Billing"></div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Work Order Cost" data-dojo-attach-point="woCost">
+							</div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Total Billed to site" data-dojo-attach-point="totalBill">
+							</div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Client Charge" data-dojo-attach-point="clientCharge">
+							</div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Labour Total" data-dojo-attach-point="laborTotal">
+							</div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Materials Total" data-dojo-attach-point="materialsTotal">
+							</div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Penalities/Fees Total" data-dojo-attach-point="feesTotal">
+							</div>
+							<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Itemized Total" data-dojo-attach-point="itemizedTotal">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-dojo-attach-point="FNSpecificDiv" style="display: none">
+					<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Pay Details</b>',open:true" data-dojo-attach-point="payDetailsPanel" style="padding-top: 10px;width: 33%;display: inline-block;vertical-align: top;">
+						<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="payDetailsForm">
+							<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="payDetailsTable">
+								<div data-dojo-type="dijit.form.TextBox" title="Pay Type" data-dojo-attach-point="payType">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Rate" data-dojo-attach-point="rate">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Additional Hourly Rate" data-dojo-attach-point="additionalHourlyRate">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Max Additional Hours" data-dojo-attach-point="maxAdditionalHours">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Approximate hours to complete" data-dojo-attach-point="appxHours2Complete">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Max Hours" data-dojo-attach-point="maxHours">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Time Log Hours" data-dojo-attach-point="timeLogHours">
+								</div>
+								<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="FN Labor Cost" data-dojo-attach-point="fnLaborCost">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Work Order Expenses</b>',open:true" data-dojo-attach-point="WOExpensesPanel" style="padding-top: 10px;width: 33%;display: inline-block;vertical-align: top;">
+						<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="WOExpensesForm">
+							<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="WOExpensesTable">
+								<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Expenses" data-dojo-attach-point="expenses">
+								</div>
+								<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Penalties" data-dojo-attach-point="penalties">
+								</div>
+								<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Service Fees" data-dojo-attach-point="serviceFees">
+								</div>
+								<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Tax" data-dojo-attach-point="tax">
+								</div>
+								<div data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="constraints:{fractional:true},currency:'USD',invalidMessage:'Invalid amount.'" title="Work Order Cost" data-dojo-attach-point="expwoCost"></div>
+							</div>
+						</div>
+					</div>
+					<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Field Tech Information</b>',open:true" data-dojo-attach-point="fieldTechInfoPanel" style="padding-top: 10px;width: 33%;display: inline-block;vertical-align: top;">
+						<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="fieldTechInfoForm">
+							<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="fieldTechInfoTable">
+								<div data-dojo-type="dijit.form.TextBox" title="Technician First Name" data-dojo-attach-point="techFirstName">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Technician Last Name" data-dojo-attach-point="techLastName">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Technician Number" data-dojo-attach-point="techNumber">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Tech Open Code" data-dojo-attach-point="techOpenCode" maxlength="10">
+								</div>
+								<div data-dojo-type="dijit.form.TextBox" title="Tech Close Code" data-dojo-attach-point="techCloseCode" maxlength="10"></div>
+								<div><textarea data-dojo-type="dijit.form.SimpleTextarea" title="Tech Close Out Notes" data-dojo-attach-point="techCloseOutNotes" data-dojo-props="rows:2" style="width: 250px;"></textarea></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Work Order Event Details</b>',open:true" data-dojo-attach-point="WOEventInfoPanel" style="padding-top: 10px; width: 99%;">
+					<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="WOEventInfoForm">
+						<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:6,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="WOEventInfoTable">
+
+							<div data-dojo-type="dijit.form.TextBox" title="Created By" data-dojo-attach-point="createdUser">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Created Date" data-dojo-attach-point="createdOn">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Modified By" data-dojo-attach-point="modifiedUser">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Modified Date" data-dojo-attach-point="modifiedOn">
+							</div>
+							<div data-dojo-type="dijit.form.TextBox" title="Closed By" data-dojo-attach-point="closedUser"></div>
+							<div data-dojo-type="dijit.form.TextBox" title="Closed Date" data-dojo-attach-point="closedOn"></div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane" title="Charge Itemizations" data-dojo-attach-point="woChargeItemizations" data-dojo-attach-event='onShow: initWOChargeInfo'>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Charge Itemizations</b>',open:true,toggleable: false" data-dojo-attach-point="woChargeItemizationsPane">
+					<!-- <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="woAddChargesBtn" style="padding-right: 0px;">
+						<div>Add Charges</div>
+					</div> -->
+					<div data-dojo-attach-point="refreshDiv" style="position: relative; left: 93%; padding-bottom: 10px;z-index: 1000; display: inline-flex;">
+						<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="woChargesReloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+							<div>Reload</div>
+						</div>
+						<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+							<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+							<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading
+								...</label>
+						</div>
+					</div>
+					<div data-dojo-attach-point="woChargeItemizationsDiv" style="width: 99%;height:300px"></div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane" title="Notes" data-dojo-attach-point="woNotes" data-dojo-attach-event='onShow: initWONotes'>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Notes</b>',open:true,toggleable: false" data-dojo-attach-point="woNotesPane">
+					<!-- <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="woAddNotesBtn" style="padding-right: 0px;">
+						<div>Add Notes</div>
+					</div> -->
+					<div data-dojo-attach-point="refreshDiv" style="position: relative; left: 93%; padding-bottom: 10px;z-index: 1000; display: inline-flex;">
+						<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="woNotesReloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+							<div>Reload</div>
+						</div>
+						<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+							<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+							<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading
+								...</label>
+						</div>
+					</div>
+					<div data-dojo-attach-point="woNotesDiv" style="width: 99%;height:300px"></div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane" title="Related" data-dojo-attach-point="woRelated" data-dojo-attach-event='onShow: initWORelated'>
+				<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>History</b>',open:true,toggleable: false" data-dojo-attach-point="woHistoryPane">
+					<div data-dojo-attach-point="wohistoryDiv" style="width: 99%;height:300px"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

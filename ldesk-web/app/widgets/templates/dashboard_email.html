@@ -1,0 +1,17 @@
+<div class="${baseClass}">
+	<div class="headerTitle" style="padding-top: 10px;padding-bottom: 10px;background: #fffff0;margin-bottom: 10px; border: 1px solid #b5bcc7; ">
+		<div style="padding:10px;display: flex; justify-content:space-between; align-items:center">
+			<div>
+				<label>Dashboard</label>
+				<label style="font-size: 14px;"> <b><span data-dojo-attach-point="dbNameSpan"></span></b></label>
+				<label style="font-size: 12px;"><span data-dojo-attach-point="dbIdSpan"></span></label>
+			</div>
+			<div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="closeWindowBtn" style="display: inline-block;padding-left: 5px">Close Window</div>
+			</div>
+		</div>
+	</div>
+	<div data-dojo-attach-point="errorDiv" style="height: 300px;justify-content: center;align-items: center;display: none;"><label style="font-weight: bold;color: red;">You do not have permission to view this Report!!</label></div>
+	<!-- <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="dashboardDiv" style="border: 1px solid #b5bcc7;width: 99%;min-width: 0;display: flex; flex-direction: row;flex-wrap: wrap; display: none"></div> -->
+	<div id="dashboard_${dbId}" data-dojo-attach-point="dashboardDiv"></div>
+</div>

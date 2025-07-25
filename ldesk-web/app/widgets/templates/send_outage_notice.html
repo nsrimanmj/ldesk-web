@@ -1,0 +1,28 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Send Outage Notice" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="sendOutageDialog" style="width:900px;background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="outageForm">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="outageTable" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+                    <div data-dojo-type="dijit/form/FilteringSelect" title="Message Type<req>" data-dojo-attach-point="msgType" data-dojo-props="disabled:false,labelAttr:'name',labelType:'text', intermediateChanges:true" style="width: 250px" required="true">
+                        <option value="Outage Opened">Outage Opened</option>
+                        <option value="Outage Closed">Outage Closed</option>
+                    </div>
+                    <div data-dojo-type="dojox/form/CheckedMultiSelect" title="Service Type" data-dojo-attach-point="servType" data-dojo-props="labelAttr:'name',labelType:'text', intermediateChanges:true, dropDown: true, multiple: true, scrollOnFocus: true" sortByLabel=true required="false"> </div>
+                    <div data-dojo-type="dojox/form/CheckedMultiSelect" title="Account Type" data-dojo-attach-point="accType" data-dojo-props="labelAttr:'name',labelType:'text', intermediateChanges:true, dropDown: true, multiple: true, scrollOnFocus: true" sortByLabel=true required="false"> </div>
+                    <div data-dojo-type="dijit/layout/ContentPane" title="Outage Notification<req>" data-dojo-attach-point="outageNotif" style="display: inline;">
+                        <div data-dojo-props="rows:3,regExp:'^[a-zA-Z0-9 ]*$',invalidMessage:'Only alphanumeric characters are allowed.', promptMessage: 'Enter letters, numbers only.'" style="width:250px;" maxLength="160" data-dojo-attach-point="outageNotifMsg" data-dojo-type="app/view/ValidationTextarea" required="true"></div>
+                        <!-- <div iconClass="bookIcon" data-dojo-type="dijit.form.Button" data-dojo-attach-point="btnSummaryView" data-dojo-props="showLabel:false"></div> -->
+                    </div>
+                    <div data-dojo-type="app/view/ValidationCheckedMultiSelect" class="required" data-dojo-props="intermediateChanges:true, dropDown: true, multiple: true, labelAttr:'name',labelType:'text',scrollOnFocus: true" name="statesAffected" title="States Affected<req>" data-dojo-attach-point="statesSelect" required="true">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="dijitDialogPaneActionBar" style="text-align:center" data-dojo-attach-point="dialogActionbar">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn">Submit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+{
+    "CC": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        },
+        {
+            "billType": "EC",
+            "agentLevel": "2"
+        },
+        {
+            "billType": "Check",
+            "agentLevel": "2"
+        }
+            ],
+    "EC": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        },
+        {
+            "billType": "EC",
+            "agentLevel": "1"
+        },
+        {
+            "billType": "Check",
+            "agentLevel": "2"
+        }
+            ],
+    "LEC": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        },
+        {
+            "billType": "EC",
+            "agentLevel": "4"
+        },
+        {
+            "billType": "Check",
+            "agentLevel": "3"
+        }
+            ],
+    "UV": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        }
+            ],
+    "Check": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        },
+        {
+            "billType": "EC",
+            "agentLevel": "4"
+        }
+        ],
+    "PP": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        }
+        ],
+    "Payment Pending": [
+        {
+            "billType": "CC",
+            "agentLevel": "1"
+        },
+        {
+            "billType": "EC",
+            "agentLevel": "4"
+        },
+        {
+            "billType": "Check",
+            "agentLevel": "4"
+        }
+        ],
+    "VIP": [
+        {
+            "billType": "CC",
+            "agentLevel": "4"
+        }
+        ]
+}

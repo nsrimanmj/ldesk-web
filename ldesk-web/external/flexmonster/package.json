@@ -1,0 +1,35 @@
+{
+  "name": "flexmonster",
+  "version": "2.9.84",
+  "description": "Pivot table component for web reporting. The most powerful JavaScript tool to visualize your business data.",
+  "main": "flexmonster.full.js",
+  "typings": "./types/flexmonster.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flexmonster/js-pivot-table.git"
+  },
+  "keywords": [
+    "pivot",
+    "pivot table",
+    "pivot grid",
+    "pivot charts",
+    "analytics",
+    "reporting",
+    "mysql",
+    "msas",
+    "analysis services",
+    "csv",
+    "json",
+    "BI",
+    "business intelligence"
+  ],
+  "author": {
+    "name": "Flexmonster",
+    "email": "help@flexmonster.com"
+  },
+  "license": "https://www.flexmonster.com/terms/Flexmonster-Terms-and-Conditions.pdf",
+  "bugs": {
+    "url": "https://flexmonster.com/forum/"
+  },
+  "homepage": "https://flexmonster.com"
+}

@@ -1,0 +1,35 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Convert To Incident"
+        data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="convertIncDialog"
+        style="width:900px; background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="convertformInc">
+                <div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="covertIncTable"
+                    data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+                    <div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="category"
+                        title="Category<req>" placeholder="Select a Category"
+                        data-dojo-props="missingMessage:'Please select Category',tooltipPosition:['after']"
+                        style="width: 250px;" required="true"> </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" title="Type<req>" data-dojo-attach-point="type"
+                        data-dojo-props="missingMessage:'Please select the type',tooltipPosition:['after']"
+                        style="width: 250px" required="true">
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" title="Sub Type<req>"
+                        data-dojo-attach-point="subType"
+                        data-dojo-props="missingMessage:'Please select the sub Type',tooltipPosition:['after']"
+                        style="width: 250px" required="true">
+                    </div>
+                    <div data-dojo-type="dijit/form/FilteringSelect" title="Service Number<req>"
+                        data-dojo-attach-point="service_number" placeholder="Please Select a Service Number"
+                        data-dojo-props="labelAttr:'name',searchAttr:'name' " style="width: 250px;" required="true">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Cancel</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn">Submit</button>
+        </div>
+    </div>
+</div>

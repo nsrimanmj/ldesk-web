@@ -1,0 +1,41 @@
+<div class="${baseClass}" style="height: 100%;width: 100%;">
+	<div data-dojo-type="dijit/layout/TabContainer" style="height:100%;width:98%;" data-dojo-attach-point="myCasesTab" id="myCasesTab">
+		<div data-dojo-type="dijit/layout/ContentPane" title="Assigned Cases" style="height:100%;width:98%;" data-dojo-props="selected:true">
+			<div style="display: flex;align-items: center;">
+				<div data-dojo-type="dijit.layout.ContentPane" name="tickets" title="Tickets" data-dojo-attach-point="tickets" value="" class="radio-inline" style="margin-top: 0px;width:20% ">
+					<label>Assigned To</label>
+					<label style="padding-left: 10px; font-size: 14px;"> <b><span data-dojo-attach-point="agentNameSpan"></span></b></label>
+				</div>
+				<div data-dojo-type="dijit.layout.ContentPane" data-dojo-attach-point="agentTickets">
+					<label style="display: inline-block;">Agent name:</label>
+					<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="myAgentList" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'" style="width: 180px;display: inline-block;"></div>
+				</div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="searchBtn" style="padding-right: 0px;">
+					<div>Get Cases</div>
+				</div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="agentCasesreloadBtn" class="reload-btn" style="padding-right: 20px;margin-left: auto!important;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+					<div>Reload</div>
+				</div>
+			</div>
+			<div data-dojo-attach-point="agentCasesDiv" style="margin-top: 10px;height:90%;display:block;width:99%"></div>
+		</div>
+
+		<div data-dojo-type="dijit.layout.ContentPane" title="Submitted By Me" style="height:100%;width:98%;">
+			<div data-dojo-attach-point=" agentSubmittedrefreshDiv" class="" style="display: flex;width: 99%;justify-content: flex-end;padding-bottom: 5px;">
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="agentSubmittedreloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+					<div>Reload</div>
+				</div>
+				<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px"><img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block"><label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading ...</label></div>
+			</div>
+			<div data-dojo-attach-point="agentSubmittedDiv" style="margin-top: 0.1em; height:90%;display:block;width:99%"></div>
+
+		</div>
+
+
+	</div>
+
+
+	<!-- <div style="width: 17%;display: inline-block;vertical-align: middle;">
+		<div data-dojo-type="app/widgets/quickUpdate" data-dojo-attach-point="quickUpdate" data-dojo-props="lingoController: this.lingoController"></div>
+	</div> -->
+</div>

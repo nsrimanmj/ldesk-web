@@ -1,0 +1,44 @@
+<div class="${baseClass}">>        
+    <div data-dojo-type="dijit/Dialog" data-dojo-attach-point="editGroup" data-dojo-props="destroyOnClose : false,closable: false" style="width: 900px" title="Edit Group">
+        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">
+        <div data-dojo-type="dijit.form.TextBox" title="Group Name" data-dojo-attach-point="groupName" data-dojo-props="disabled:true" value="${groupInfo.groupName}"> </div>
+        <div data-dojo-type="dijit.form.TextBox" title="User Name" data-dojo-attach-point="userName" data-dojo-props="disabled:true" value="${groupInfo.userName}"> </div>
+    
+        <div data-dojo-type="dijit/layout/ContentPane">
+        <div style = "float: left;">
+                <div><label><B>Is Agent On Esclation Duty?</B></label></div>
+                    <div style="float: left"class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" name = "groupEsclation" data-dojo-attach-event="click: selectEsclation" id="editGroup_esclationDutyNo"  value = "No" data-dojo-attach-point="editGrpEsclationDutyNo"/>No</label>
+                    </div>
+                    <div class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" name = "groupEsclation" data-dojo-attach-event="click: selectEsclation" id="editGroup_esclationDutyYes" value = "Yes" data-dojo-attach-point="editGrpEsclationDutyYes"/>Yes</label>
+                </div>
+         </div> 
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane">
+                <div><label><B>What is the Agent's level?</B></label></div>
+                    <div  style="float: left" class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" name = "groupLevel" data-dojo-attach-event="click: selectAgentLevel"   value = "1" id = "editGroup_agentLevel1" data-dojo-attach-point="editGroupAgentLevel1"/>1</label>
+                    </div>
+                 <div style="float: left"class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton"  name = "groupLevel" data-dojo-attach-event="click: selectAgentLevel"  value = "2" data-dojo-attach-point="editGroupAgentLevel2" id = "editGroup_agentLevel2"/>2</label>
+                    </div>
+                 <div style="float: left"class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton"  name = "groupLevel" data-dojo-attach-event="click: selectAgentLevel"  value = "3"  data-dojo-attach-point="editGroupAgentLevel3" id = "editGroup_agentLevel3"/>3</label>
+                    </div>
+                 <div style="float: left"class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton" name = "groupLevel"  data-dojo-attach-event="click: selectAgentLevel" value = "4"  data-dojo-attach-point="editGroupAgentLevel4" id = "editGroup_agentLevel4"/>4</label>
+                    </div>
+                 <div class="divRadio">
+                        <label style="display:inline"><input type="radio" data-dojo-type="dijit/form/RadioButton"  name = "groupLevel" data-dojo-attach-event="click: selectAgentLevel" value = "5"  data-dojo-attach-point="editGroupAgentLevel5" id = "editGroup_agentLevel5"/>5</label>
+                </div>
+            </div>
+        </div>
+             
+        <div class="dijitDialogPaneActionBar" style="text-align:center">
+            <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="submitBtn">Submit</button>
+            <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelButton">Cancel</button>
+        </div>
+        
+    </div>
+</div>

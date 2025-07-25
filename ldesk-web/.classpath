@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="util/buildscripts/webbuild/server/src"/>
+	<classpathentry kind="src" path="util/doh/robot"/>
+	<classpathentry kind="src" path="util/shrinksafe/src"/>
+	<classpathentry kind="lib" path="util/buildscripts/cldr/lib/ant-apache-bsf.jar"/>
+	<classpathentry kind="lib" path="util/buildscripts/cldr/lib/bsf.jar"/>
+	<classpathentry kind="lib" path="util/buildscripts/cldr/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="util/buildscripts/cldr/lib/resolver.jar"/>
+	<classpathentry kind="lib" path="util/buildscripts/cldr/lib/saxon9.jar"/>
+	<classpathentry kind="lib" path="util/buildscripts/webbuild/server/lib/js.jar"/>
+	<classpathentry kind="lib" path="util/buildscripts/webbuild/server/lib/shrinksafe.jar"/>
+	<classpathentry kind="lib" path="util/closureCompiler/compiler.jar"/>
+	<classpathentry kind="lib" path="util/shrinksafe/js.jar"/>
+	<classpathentry kind="lib" path="util/shrinksafe/shrinksafe.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,56 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="scheduleDlg" title="Schedule" style="width:700px">
+		<div class="dijitDialogPaneContentArea">
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable: false">
+				<legend>Settings</legend>
+				<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="ScheduleForm">
+					<div class="row">
+						<label style="margin-top: 10px; display: inline;"><b>Subject <req>: </b></label>
+						<div data-dojo-type="dijit/form/ValidationTextBox" class="required" title="Subject" data-dojo-attach-point="subject" required="true" style="width: 250px;"></div>
+					</div>
+					<div class="row">
+						<label style="margin-top: 10px; display: inline;"><b>Description <req>: </b></label>
+						<div data-dojo-type="dijit/form/ValidationTextBox" class="required" title="Description" data-dojo-attach-point="description" required="true" data-dojo-props="intermediateChanges:true, promptMessage:'Description is required!',tooltipPosition:['after']" style="width: 250px;"></div>
+					</div>
+					<div class="row">
+						<label style="margin-top: 10px; display: inline;"><b>Schedule <req>: </b></label>
+						<div id="schedule_div" data-dojo-attach-point="schedule" style="display: inline;margin-left: 5px;"></div>
+						<label style="margin-top: 10px; display: inline;">(Time Zone: ET)</label>
+					</div>
+					<div class="row">
+						<label style="margin-top: 10px; display: inline;"><b>Recipients <req>: </b></label>
+						<div data-dojo-type="dojox/form/ListInput" data-dojo-attach-point="toList" data-dojo-props="readOnly: true, name:'toList', value:[],validate:dojox.validate.isEmailAddressList,invalidMessage:'This is not a valid email!'"></div>
+					</div>
+					<div class="row">
+						<label style="margin-top: 10px;padding-right: 10px; display: inline;"><b>Select Recipients </b></label>
+						<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="agentList" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'" title="Recipients List"></div>
+					</div>
+					<div class="row">
+						<label style="margin-top: 10px; display: inline;"><b>Mailing List: </b></label>
+						<div data-dojo-type="dijit/form/ValidationTextBox" title="Mailing List" data-dojo-attach-point="mailingList" style="width: 250px;" data-dojo-props="validator:dojox.validate.isEmailAddressList,invalidMessage:'This is not a valid email!', tooltipPosition:['below-centered']"></div>
+						<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="addBtn">Add</button>
+					</div>
+					<div class="row" data-dojo-attach-point="includeDiv">
+						<label style="margin-top: 10px;padding-right: 10px; display: inline;"><b>Include: </b></label>
+						<div style="display: inline;">
+							<div style="display: inline; padding-left: 5px;"><input data-dojo-attach-point="includeSummary" data-dojo-type="dijit/form/CheckBox" value="true" checked /> <label style="display: inline">Summary</label> </div>
+							<div style="display: inline; padding-left: 5px;"><input data-dojo-attach-point="includeChart" data-dojo-type="dijit/form/CheckBox" value="true" checked /> <label style="display: inline">Chart</label> </div>
+						</div>
+					</div>
+					<div class="row" data-dojo-attach-point="attachDiv">
+						<label style="margin-top: 10px;padding-right: 10px; display: inline;"><b>Attach: </b></label>
+						<div style="display: inline; padding-left: 5px;"><input data-dojo-attach-point="attachDetails" data-dojo-type="dijit/form/CheckBox" value="true" checked /> <label style="display: inline">Details</label> </div>
+					</div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable: false" style="margin-top: 10px;">
+				<legend>Current Status</legend>
+				<div data-dojo-attach-point="currentStatusDiv" style="height: 110px;width: 99%;"></div>
+			</div>
+		</div>
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelBtn" type="button">Cancel</button>
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="saveBtn">Save</button>
+		</div>
+	</div>
+</div>

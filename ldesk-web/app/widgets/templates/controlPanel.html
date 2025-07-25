@@ -1,0 +1,130 @@
+<div class="${baseClass}" style="height:100%;">
+	<div data-dojo-attach-point="appDiv" id="appDiv" style="height:100%;">
+		<div data-dojo-type="dijit/layout/TabContainer" style="height:100%;width:100%;" data-dojo-attach-point="appTabContainer" id="appTabContainer" data-dojo-props="tabPosition:'right-h'">
+
+			<div id="controlPanelContentPane" data-dojo-type="dijit/layout/ContentPane" title="ControlPanel" data-dojo-attach-point="controlPanelContentPane" style="padding-top:0%!important">
+				<div id="controlPanelDiv" style="height:100%;">
+					<div data-dojo-type="dijit/layout/TabContainer" style="height:100%;width:98%;float:left;" data-dojo-attach-point="controlPanelTabContainer" id="controlPanelTabContainer">
+						<div data-dojo-type="dijit/layout/ContentPane" title="Search Account" data-dojo-attach-point="searchAccountTab">
+
+
+							<div style="padding-bottom:3px">
+								<div style="display: inline-block;width: 25%">
+									<h1 style="margin-top:1%!important;display: inline-block">Search For Account </h1>
+								</div>
+								<div style="display: inline-block; width: 73%;text-align: right">
+									<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="clearDetailsBtn" data-dojo-attach-event="click: clearAccountDetails" style="margin-top:-1%!important;display: inline-block">
+										<div>Clear All Details</div>
+									</div>
+								</div>
+							</div>
+							<hr class="clear">
+
+							<div>
+								<div style="display: inline-block;padding-right: 20px">
+									<label for="searchBy" style="padding-bottom:1px">Search By</label>
+									<div data-dojo-type="dijit/form/Select" class="required" title="Search By" id="searchBy" data-dojo-attach-point="searchSelect" data-dojo-props="labelAttr:'id',labelType:'text'" value="App ID" style="width: 300px;display:inline-block;user-select: none
+										 ">
+										<option value="App ID">App ID</option>
+										<option value="Service Number">Service Number</option>
+										<option value="Contact Phone">Contact Phone</option>
+										<option value="Contact Email">Contact Email</option>
+										<option value="Case Number">Case Number</option>
+										<option value="Work Order">Work Order</option>
+										<option value="External Work Order">External Work Order</option>
+										<option value="Task Number">Task Number</option>
+										<option value="Customer Name">Customer Name</option>
+										<option value="Location Address">Location Address</option>
+
+									</div>
+								</div>
+								<div style="display: inline-block;padding-right: 20px;">
+									<div style="display: inline-block;">
+										<label id="cp_searchLabel">App ID:</label>
+										<div data-dojo-attach-point="cp_searchText" data-dojo-type="dijit/form/ValidationTextBox" style="width: 300px;display: inline-block;"> </div>
+									</div>
+									<div style="display: inline-block;padding-left: 20px;">
+										<label for="cp_searchText2" id="cp_searchLabel2"></label>
+										<div data-dojo-attach-point="cp_searchText2" data-dojo-type="dijit/form/ValidationTextBox" style="width: 300px;display: none;"> </div>
+									</div>
+									<div style="display: inline-block">
+										<label for="cp_activeCheckbox" style="display: block;position: relative;top:20px;left:18px">Active
+											Only</label>
+										<div data-dojo-type="dijit/form/CheckBox" id="cp_activeCheckbox" data-dojo-attach-point="cp_activeCheckbox" style="display: block;position: relative;top:5px"></div>
+									</div>
+									<div style="display: inline-block;">
+										<div data-dojo-type="dijit/form/CheckBox" id="cp_regexpCheckbox" data-dojo-attach-point="cp_regexpCheckbox" style="display: none;"></div>
+										<label for="cp_regexpCheckbox" style="display: none;">Search with regex</label>
+									</div>
+								</div>
+
+								<div style="display: inline-block;padding-right: 20px">
+									<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="accountInfoBtn" data-dojo-attach-event="onClick:getAccountInfo" style="display: inline-block;padding-right:20px">
+										<div style="width: 100px">Find</div>
+									</div>
+								</div>
+							</div>
+							<div style="height: 89%; width:98%;float:left;padding-top: 10px">
+								<div data-dojo-type="dijit/layout/TabContainer" style="height:100%;width:98%;" data-dojo-attach-point="acctTabContainer" id="acctTabContainer">
+
+									<div data-dojo-type="dijit/layout/ContentPane" title="Account" data-dojo-attach-point="accountTab">
+										<div data-dojo-type="app/widgets/accountSearch" data-dojo-attach-point="accountSearch" data-dojo-props="lingoController: this.lingoController"></div>
+									</div>
+
+									<div style="display: none;" data-dojo-type="dijit/layout/ContentPane" title="Cases" data-dojo-attach-point="createCaseTab" data-dojo-attach-event='onShow: initCases' data-dojo-props="style: 'overflow-y: auto!important;'">
+										<div data-dojo-type="app/widgets/Case" data-dojo-attach-point="createCase" data-dojo-props="lingoController: this.lingoController"></div>
+
+									</div>
+									<div data-dojo-type="dijit/layout/ContentPane" title="Hierarchy" data-dojo-attach-point="hierarchyTab" data-dojo-attach-event='onShow: initHierarchy'>
+										<div data-dojo-type="app/widgets/accountHierarchy" data-dojo-attach-point="accountHierarchy" data-dojo-props="lingoController: this.lingoController"></div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+						<div data-dojo-type="dijit/layout/ContentPane" title="My Cases" data-dojo-attach-point="myCasesTab" style="overflow: auto;" data-dojo-attach-event='onShow: initMyCaseTab'>
+							<div data-dojo-type="app/widgets/myCases" data-dojo-attach-point="myCases" data-dojo-props="lingoController: this.lingoController"></div>
+
+						</div>
+
+						<div data-dojo-type="dijit/layout/ContentPane" title="Network Events" data-dojo-attach-point="networkTab" data-dojo-attach-event='onShow: initNetworkEvents' action="network-tab-view">
+							<div data-dojo-type="app/widgets/networkEvents" data-dojo-attach-point="networkEvents" data-dojo-props="lingoController: this.lingoController"></div>
+						</div>
+						<div data-dojo-type="dijit/layout/ContentPane" title="Active Cases" data-dojo-attach-point="activeCaseTab" data-dojo-attach-event='onShow: initActiveCases' action="active-case-view">
+							<div data-dojo-type="app/widgets/activeCases" data-dojo-attach-point="activeCases" data-dojo-props="lingoController: this.lingoController"></div>
+						</div>
+						<div data-dojo-type="dijit/layout/ContentPane" title="Active Work Orders" data-dojo-attach-point="activeWoTab" data-dojo-attach-event='onShow: initActiveWo' action="active-wo-view">
+							<div data-dojo-type="app/widgets/activeWorkOrders" data-dojo-attach-point="activeWo" data-dojo-props="lingoController: this.lingoController"></div>
+						</div>
+						<div data-dojo-type="dijit/layout/ContentPane" title="Active Tasks" data-dojo-attach-point="activeTaskTab" data-dojo-attach-event='onShow: initActiveTask' action="active-task-view">
+							<div data-dojo-type="app/widgets/activeTasks" data-dojo-attach-point="activeTasks" data-dojo-props="lingoController: this.lingoController"></div>
+						</div>
+						<div data-dojo-type="dijit/layout/ContentPane" title="Account Due" data-dojo-attach-point="accountDueTab" data-dojo-attach-event='onShow: initAccDue' action="active_collection_accounts">
+							<div data-dojo-type="app/widgets/accountDue" data-dojo-attach-point="accountDue" data-dojo-props="lingoController: this.lingoController"></div>
+						</div>
+						
+
+						<!-- <div data-dojo-type="dijit/layout/ContentPane" title="Search Cases"
+							data-dojo-attach-point="searchCasesTab">
+							<div data-dojo-type="app/widgets/searchCases" data-dojo-attach-point="searchCases"
+								data-dojo-props="lingoController: this.lingoController"></div>
+						</div> -->
+
+					</div>
+				</div>
+			</div>
+
+			<div data-dojo-type="dijit/layout/ContentPane" title="AdminPanel" data-dojo-attach-point="adminPanelContentPane" id="adminPanelContentPane" style="padding-top:0%!important" action="admin-panel-view">
+				<div data-dojo-type="app/widgets/adminPanel" data-dojo-attach-point="adminPanel" style="height:100%" data-dojo-props="lingoController: this.lingoController"></div>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane" id="reportsTab" title="Reports" data-dojo-attach-point="reportsTab" style="overflow-y: auto;" data-dojo-attach-event='onShow: initReportTab' action="reports-view">
+				<div data-dojo-type="app/widgets/reports" data-dojo-attach-point="reports" data-dojo-props="lingoController: this.lingoController,type: 'Report'"></div>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane" id="dashboardTab" title="Dashboard" data-dojo-attach-point="dashboardTab" style="overflow-y: auto;" data-dojo-attach-event='onShow: initDashboardTab' action="dashboard-view">
+				<div data-dojo-type="app/widgets/dashboard" data-dojo-attach-point="dashboard" data-dojo-props="lingoController: this.lingoController,type: 'Dashboard'"></div>
+			</div>
+		</div>
+	</div>
+</div>
