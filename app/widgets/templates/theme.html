@@ -1,0 +1,86 @@
+<div class="${baseClass}" id="theme_dialog">
+    <div data-dojo-type="dijit/Dialog" id="themeDialog" data-dojo-attach-point="themeDialog" title="LDesk Themes" style: "width: 600px">
+        <div class="left" style="width:25%">
+            <label><b>Select a Theme</b></label>
+            <div data-dojo-attach-point='selectTheme' title="Select a Theme" name="select_theme" id="select_theme" style="width: 150px;" data-dojo-type="dijit/form/Select">
+                <option value="default">Default</option>
+                <option value="lightblue">Light Blue</option>
+                <option value="lightgreen">Light Green</option>
+                <option value="dark">Dark</option>
+                <option type="separator"></option>
+                <option value="custom">Create</option>
+            </div>
+        </div>
+        <div class="left" data-dojo-attach-point="buttonDiv" style="width:25%;padding-top:1em;display:none">
+            <button type="button" data-dojo-attach-point='btnEdit' data-dojo-props="iconClass:'dijitIcon dijitIconEdit', showLabel: false" data-dojo-type='dijit/form/Button' >Edit</button>
+            <button type="button" data-dojo-attach-point='btnRemove' data-dojo-props="iconClass:'dijitIcon dijitIconDelete', showLabel: false" data-dojo-type='dijit/form/Button' >Remove</button>
+        </div>
+        <div class="clear"></div>
+        <div id="createDiv"  data-dojo-id="createDiv" data-dojo-attach-point='createDiv' style="display:none">
+            <hr>
+            <div id="fs1" data-dojo-type="dijit/Fieldset" data-dojo-attach-point="createFS" data-dojo-props="toggleable:false">
+                <legend><b>Create</b></legend>
+                <div class="left" style="width:35%">
+                    <label>Name</label>
+                    <div data-dojo-type="dijit/form/TextBox" data-dojo-attach-point='createName' name="createName" title="Create Theme Name" id="create_name" value=""></div>
+                </div>
+                <div class="clear left" style="width:20%;padding-top:1em">
+                    <label>Change Background</label>
+                    <input type="color" id="changeBgColor" data-dojo-attach-point="changeBgColor" value="#ff0000" style="width:85%;">
+                </div>
+                <div class="left" style="width:20%;padding-top:1em">
+                    <label>Change Dialog Color</label>
+                    <input type="color" data-dojo-attach-point="changeDlgColor" value="#ff0000" style="width:85%;">
+                </div>
+                <div class="left" style="width:20%;padding-top:1em">
+                    <label>Change Border Color</label>
+                    <input type="color" data-dojo-attach-point="changeBorderColor" value="#ff0000" style="width:85%;">
+                </div>
+                <div class="left" style="width:20%;padding-top:1em">
+                    <label>Change Button Color</label>
+                    <input type="color" data-dojo-attach-point="changeBtnColor" value="#ff0000" style="width:85%;">
+                </div>
+                <div class="left" style="width:20%;padding-top:1em">
+                    <label>Change Text Color</label>
+                    <input type="color" data-dojo-attach-point="changeTextColor" value="#ff0000" style="width:85%;">
+                </div>
+                <div class="clear center" style="padding-top:0.7em">
+                    <button type="button" data-dojo-attach-point='btnCancelTheme' data-dojo-type='dijit/form/Button'>Cancel</button>
+                    <button type="button" data-dojo-attach-point='btnAddTheme' data-dojo-type='dijit/form/Button'>Add</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="fs2" data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false">
+            <legend><b>Preview</b></legend>
+            <div style="width: 650px; height: 250px">
+                <div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;">
+                    <div data-dojo-type="dijit/layout/ContentPane" title="My first tab" data-dojo-props="selected:true">
+                        <div class="left" style="width:35%">
+                            <label>Sample Textbox</label>
+                            <div data-dojo-type="dijit.form.TextBox" name="themeSampleTextBox" title="Sample Textbox" id="sample_textbox" value=""></div>
+                        </div>
+                        <div class="left" style="width:25%;padding-top:1em">
+                            <button type="button" data-dojo-type='dijit/form/Button'>Sample Button</button>
+                        </div>
+                        <div class="left" style="width:35%">
+                            <div id="Sample Calendar" title="Sample Calendar" data-dojo-type="dijit/Calendar" value="" data-dojo-props=""></div>
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit/layout/ContentPane" title="My second tab">
+                        Lorem ipsum and all around - second...
+                    </div>
+                    <div data-dojo-type="dijit/layout/ContentPane" title="My last tab" data-dojo-props="closable:true">
+                        Lorem ipsum and all around - last...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="center">
+            <button type="button" data-dojo-attach-point='btnThemeCancel' data-dojo-type='dijit/form/Button'>Cancel</button>
+            <button type="button" data-dojo-attach-point='btnThemeApply' data-dojo-type='dijit/form/Button'>Apply</button>
+        </div>                    
+    </div>
+</div>
+    

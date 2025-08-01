@@ -1,0 +1,21 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="uploadDlg" data-dojo-props="destroyOnClose: true, closable: true" style="width: 400px;" title="Change Avatar">
+
+		<form enctype="multipart/form-data" data-dojo-attach-point="uploadForm">
+
+			<div data-dojo-attach-point="previewDiv" style="margin-top: 1em; width: 100%; text-align: center;"><img class="avatar-preview" data-dojo-attach-point="previewImg" src="images/user/2.jpg"></div>
+
+
+			<div data-dojo-attach-point="buttonDiv" style="margin-top: 10px; width: 100%;text-align: center;">
+				<button style="display: inline;" data-dojo-type="dijit/form/Button" data-dojo-attach-point="browseBtn">Select Image</button>
+				<input hidden type="file" name="file" accept="image/*" data-dojo-attach-point="fileUploader" multiple="false" data-dojo-props="accept:'image/png,image/jpeg', uploadOnSelect: false, force: 'html5'" />
+				<button style="display: inline;" data-dojo-type="dijit/form/Button" data-dojo-attach-point="uploadButton" type="submit">Upload Image</button>
+			</div>
+
+			<div data-dojo-attach-point="status"></div>
+		</form>
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelBtn" type="button">Cancel</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" data-dojo-props="destroyOnClose:true, closable:true" data-dojo-attach-point="collectionDlg" class="collection-dialog">
+
+		<div class="dijitDialogPaneContentArea">
+			<div title="Basic Collection Information" data-dojo-attach-point="caseCollectionDiv" class="collection-section">
+
+				<!-- Aging Info Summary -->
+				<div class="aging-info-grid">
+					<div class="info-row">App ID: <b><span data-dojo-attach-point="appIdSpan"></span></b></div>
+					<div class="info-row">Past Due Amount (30 days): <b><span data-dojo-attach-point="past30Span"></span></b></div>
+					<div class="info-row">Name: <b><span data-dojo-attach-point="accountNameSpan"></span></b></div>
+					<div class="info-row">Past Due Amount (60 days): <b><span data-dojo-attach-point="past60Span"></span></b></div>
+					<div class="info-row">Last Payment Date: <b><span data-dojo-attach-point="lastPymtDate"></span></b></div>
+					<div class="info-row">Last Payment Amount: <b><span data-dojo-attach-point="lastPymtAmt"></span></b></div>
+					<div class="info-row">Total Balance: <b><span data-dojo-attach-point="totalBalance"></span></b></div>
+				</div>
+
+				<!-- Form Starts -->
+				<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="createForm" class="case-section">
+					<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2, orientation:'vert', spacing:2, customClass:'ldesk-tbl', spanLabel:true">
+
+						<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="begBalance" name="Beginning Balance" title="Beginning Balance<req>" maxLength="256" data-dojo-props="
+								pattern:'^-?\\d+(\\.\\d{1,2})?$',
+								required:true,
+								invalidMessage:'Enter a valid amount (e.g., -15067.74 or 12345.67)'
+							"></div>
+
+						<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="ownerId" name="caseOwner" title="Case Owner<req>" data-dojo-props="searchAttr:'fullName', labelAttr:'fullName', labelType:'text'" required="true"></div>
+
+						<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="denyDate" name="Deny Date" title="Deny Date<req>" data-dojo-props="constraints:{min:new Date(), datePattern:'yyyy-MM-dd'}" required="true"></div>
+
+						<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="collEmail" name="Collections Contact Email" title="Collections Contact Email<req>" maxLength="256" data-dojo-props="
+								intermediateChanges:true,
+								regExp:dojox.validate.regexp.emailAddress,
+								invalidMessage:'Invalid Email',
+								missingMessage:'Please provide valid email address',
+								tooltipPosition:['after']" required="true"></div>
+
+						<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="disconnectDate" name="Disconnect Date" title="Disconnect Date<req>" data-dojo-props="constraints:{min:new Date(), datePattern:'yyyy-MM-dd'}" required="true"></div>
+
+						<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="colContactPhone" name="Collections Contact Phone" title="Collections Contact Phone" maxLength="30" data-dojo-props="missingMessage:'Please enter contact number', tooltipPosition:['after']"></div>
+
+						<div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="finalDemandDate" name="Final Demand Date" title="Final Demand Date" data-dojo-props="constraints:{min:new Date(), datePattern:'yyyy-MM-dd'}"></div>
+
+						<div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="colContactName" name="Collections Contact Name" title="Collections Contact Name" maxLength="256" data-dojo-props="missingMessage:'Please enter contact name', tooltipPosition:['after']"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Buttons -->
+		<div class="dijitDialogPaneActionBar" style="text-align:center">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn">Submit</button>
+		</div>
+	</div>
+</div>

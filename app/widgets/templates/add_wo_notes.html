@@ -1,0 +1,14 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Dialog" title="New Notes" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="woNotesDlg" style="width:40%; background-color: white">
+		<div class="dijitDialogPaneContentArea">
+			<div data-dojo-attach-point="noteCommentDiv">
+				<label><b>Comments<req></b></label>
+				<div data-dojo-type="app/view/ValidationTextarea" data-dojo-attach-point="notesComments" title="Comments<req>" rows="4"></div>
+			</div>
+		</div>
+		<div class="dijitDialogPaneActionBar" style="text-align:center" data-dojo-attach-point="dialogActionbar">
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+			<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn" type="button">Submit</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="${baseClass}">
+    <div style="display: flex;justify-content: flex-end;align-items: center;">
+		<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="mailReloadBtn" class="reload-btn" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+			<div>Reload</div>
+		</div>
+		<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+			<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+			<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading...</label>
+		</div>
+	</div>
+    <div data-dojo-attach-point="caseAttachmentsDiv" style="margin-top: 1em; height:35em;width:90%"></div>
+    <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="attachFileBtn" recordType="${recordType}" style="display:none;">Add Attachments</button>
+</div>

@@ -1,0 +1,126 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dojox/widget/TitleGroup" id="createAccountTg" data-dojo-attach-point="createAccountTg">
+        <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Account Management</b>',open:true" selected="true" data-dojo-attach-point="AccountMgmntPanel">
+         <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Account Name" data-dojo-attach-point="Account Name" data-dojo-props="missingMessage:'Please enter User Name',tooltipPosition:['after']" required="true"></div>  
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="App ID" data-dojo-attach-point="App ID" data-dojo-props="tooltipPosition:['after']" ></div>
+          <div data-dojo-type="dijit/form/ValidationTextBox" title="Legal Business Name" data-dojo-attach-point="Legal Business Name" data-dojo-props="missingMessage:'Please enter Legal Business Name ',tooltipPosition:['after']" required="true"></div> 
+        <div data-dojo-type="dijit/form/CheckBox" title="Target" data-dojo-attach-point="Target"> </div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Account Status" data-dojo-attach-point="Account Status" value="Research" data-dojo-props="tooltipPosition:['after']" required="true"></div>
+         <div data-dojo-type="dijit/form/ValidationTextBox" title="Phone" data-dojo-attach-point="Phone" data-dojo-props="tooltipPosition:['after']" ></div>
+          <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="AccountType" data-dojo-attach-point="AccountType" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;"> 
+        <option selected>--None--</option>
+        </div>
+        
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Fax" data-dojo-attach-point="Fax" data-dojo-props="tooltipPosition:['after']" ></div>
+         <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Industry" data-dojo-attach-point="Industry" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;"> 
+        <option selected>--None--</option>
+        </div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Website" data-dojo-attach-point="Website" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Sub-Industry" data-dojo-attach-point="Sub-Industry" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="CadeBill Account No" data-dojo-attach-point="CadeBill Account No" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="NAICS Code" data-dojo-attach-point="NAICS Code" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Total # of Locations" data-dojo-attach-point="Total # of Locations" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="NAICS Description" data-dojo-attach-point="NAICS Description" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Customer Since" data-dojo-attach-point="Customer Since" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="SIC Description" data-dojo-attach-point="SIC Description" data-dojo-props="tooltipPosition:['after']" ></div>
+         <div data-dojo-type="dijit/form/ValidationTextBox" title="Customer Length" data-dojo-attach-point="Customer Length" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="IsBandwave" data-dojo-attach-point="IsBandwave" data-dojo-props="tooltipPosition:['after']"></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Current Contract End Date" data-dojo-attach-point="Current Contract End Date" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="StoreNumber" data-dojo-attach-point="StoreNumber" data-dojo-props="tooltipPosition:['after']" ></div>
+       
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Sales ID" data-dojo-attach-point="Sales ID" value="1000004567" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="TSP Code" data-dojo-attach-point="TSP Code" data-dojo-props="tooltipPosition:['after']" ></div>
+        <div data-dojo-type="dijit/form/ValidationTextBox" title="Master Agent" data-dojo-attach-point="Master Agent" value="CLIENT SERVICES - HOUSE" data-dojo-props="tooltipPosition:['after']" ></div>
+         <div data-dojo-type="dijit/form/ValidationTextBox" title="Bill Cycle" data-dojo-attach-point="Bill Cycle" data-dojo-props="tooltipPosition:['after']" ></div>
+         <div data-dojo-type="dijit/form/ValidationTextBox" title="Sub-Agent" data-dojo-attach-point="Sub-Agent" data-dojo-props="tooltipPosition:['after']" ></div>
+        
+</div>
+</div>
+<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Address Information</b>',open:true" selected="true" data-dojo-attach-point="AccountMgmntPanel">
+   <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Billing Street Number" data-dojo-attach-point="Billing Street Number" data-dojo-props="tooltipPosition:['after']" required="true"></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Billing Account Name" data-dojo-attach-point="Billing Account Name" value="Cottage Health" data-dojo-props="tooltipPosition:['after']"  ></div>
+    </div>
+    <div style="display: grid;grid-template-columns: 1fr 1fr;gap:20px">
+   <label for="Bstreet"><b>Billing Street Name</b><br><input type="text" data-dojo-type="dijit/form/TextBox"  title="Billing Street Name" data-dojo-attach-point="Bstreet" required></label>
+    <div data-dojo-type="dijit/layout/ContentPane" style="margin-left: -15px;display: grid;grid-template-columns: 1fr;gap:10px" data-dojo-attach-point="shippingPane" title="Shipping Address">
+    <div style="display: inline-block">
+    <label><b>Shipping Address</b></label> 
+    <div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="search" placeholder="Search Address" data-dojo-props="tooltipPosition:['after']" ></div>
+   <div data-dojo-type="dijit/form/Button"  title="Search" data-dojo-attach-point="Search" data-dojo-props="tooltipPosition:['after']" >Search</div>
+    </div>                                                                                               <label for="shipstreet"><b>Shipping Street</b><br><input type="text" data-dojo-type="dijit/form/TextBox" title="Shipping Street" data-dojo-attach-point="shipstreet" ></label> 
+   <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Shipping City" data-dojo-attach-point="Shipping City" data-dojo-props="tooltipPosition:['after']"></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Shipping State/Province" data-dojo-attach-point="Shipping State/Province" data-dojo-props="tooltipPosition:['after']" ></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Shipping Zip/Postal Code" data-dojo-attach-point="Shipping Zip/Postal Code" data-dojo-props="tooltipPosition:['after']"></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Shipping Country" data-dojo-attach-point="Shipping Country" data-dojo-props="tooltipPosition:['after']" ></div>
+    </div>
+    </div>
+    </div> 
+    <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:1,orientation:'vert',spacing:2,customClass:'searchtable'">
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Billing City" data-dojo-attach-point="Billing City" data-dojo-props="tooltipPosition:['after']" required="true"></div>
+    <div data-dojo-type="dijit/form/FilteringSelect" class="required" title="Billing State" data-dojo-attach-point="Billing State" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;"> 
+        <option selected>--None--</option>
+           
+    </div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Billing Zip Code" data-dojo-attach-point="Billing Zip Code" data-dojo-props="tooltipPosition:['after']" required="true"></div>
+    
+    </div>
+         
+    
+</div>
+<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Additional Information</b>',open:true" selected="true" data-dojo-attach-point="AdditionalMgmntPanel">
+  <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">  
+    
+     <div data-dojo-type="dijit/form/ValidationTextBox" title="CRM" data-dojo-attach-point="CRM" value="Brain Fuller" data-dojo-props="tooltipPosition:['after']" ></div>
+    
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Annual Revenue" data-dojo-attach-point="Annual Revenue" data-dojo-props="tooltipPosition:['after']" ></div>
+    
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="CRM User" data-dojo-attach-point="CRM User" value="Brain Fuller" data-dojo-props="tooltipPosition:['after']"></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Employees" data-dojo-attach-point="Employees" data-dojo-props="tooltipPosition:['after']" ></div>
+     <div data-dojo-type="dijit/form/ValidationTextBox" title="Account Manager" data-dojo-attach-point="Account Manager" value="BUSINESS_ADVANTAGE" data-dojo-props="tooltipPosition:['after']" ></div>
+    <div data-dojo-type="dijit/form/CheckBox" title="HIPAA Compliancy" data-dojo-attach-point="HIPAA Compliancy"> </div>
+    
+</div>  
+ </div>
+   <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Description Information</b>',open:true" selected="true" data-dojo-attach-point="descpMgmntPanel">     
+    <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">      
+    <div data-dojo-type="dijit/form/CheckBox" title="Win-Back" data-dojo-attach-point="Win-Back"> </div> 
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Geography" data-dojo-attach-point="Geography" value="null" data-dojo-props="tooltipPosition:['after']" ></div>  
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Description" data-dojo-attach-point="Description" data-dojo-props="tooltipPosition:['after']" ></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="D-U-N-S Number" data-dojo-attach-point="D-U-N-S Number" data-dojo-props="tooltipPosition:['after']" ></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Reconnect Date" data-dojo-attach-point="Reconnect Date" data-dojo-props="tooltipPosition:['after']" ></div>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Primary US SIC Code" data-dojo-attach-point="Primary US SIC Code" data-dojo-props="tooltipPosition:['after']"></div>
+</div>      
+</div>
+ <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Opportunity Information</b>',open:true" selected="true" data-dojo-attach-point="oppMgmntPanel"> 
+  <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">     
+<div data-dojo-type="dijit/form/ValidationTextBox" title=" Won Opportunities" data-dojo-attach-point=" Won Opportunities" value="" data-dojo-props="tooltipPosition:['after']" ></div> 
+<div data-dojo-type="dijit/form/ValidationTextBox" title="Contract EndDate - Last Won Opportunity" data-dojo-attach-point="Contract EndDate - Last Won Opportunity" data-dojo-props="tooltipPosition:['after']" ></div>  
+   <div data-dojo-type="dijit/form/ValidationTextBox" title=" of Pending Opportunities" data-dojo-attach-point=" of Pending Opportunities" value="" data-dojo-props="tooltipPosition:['after']" ></div>  
+     <div data-dojo-type="dijit/form/ValidationTextBox" title="of Lost Opp" data-dojo-attach-point="of Lost Opp" value="" data-dojo-props="tooltipPosition:['after']" ></div>  
+     
+</div>     
+</div>
+<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>System Information</b>',open:true" selected="true" data-dojo-attach-point="sysMgmntPanel"> 
+  <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">     
+<div data-dojo-type="dijit/form/ValidationTextBox" title="Created By" data-dojo-attach-point=" Created By" value="" data-dojo-props="tooltipPosition:['after']" ></div> 
+<div data-dojo-type="dijit/form/ValidationTextBox" title="Last Modified By" data-dojo-attach-point="Last Modified By" data-dojo-props="tooltipPosition:['after']" ></div>  
+    </div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+  <label for="recordtype"><b>Account Record Type</b><br><input type="text" data-dojo-type="dijit/form/TextBox"  title="Account Record Type" data-dojo-attach-point="recordtype" ></label>
+    <div style="display: inline-block;margin-left:-5px">
+    <label><b>Parent Account</b></label>
+    <div data-dojo-type="dijit/form/ValidationTextBox" title="Parent Account" data-dojo-attach-point="Parent Account" placeholder="Search Account" data-dojo-props="tooltipPosition:['after']" ></div>
+   <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="Search" data-dojo-props="tooltipPosition:['after']" >Search</div>  
+    </div>
+     
+</div>     
+</div>
+ <div class="dijitDialogPaneActionBar" style="text-align:center">
+            <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="submitBtn">Submit</button>
+            <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelButton">Cancel</button>
+        </div>
+</div>
+</div>

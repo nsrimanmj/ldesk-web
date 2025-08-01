@@ -1,0 +1,13 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dijit/Fieldset" data-dojo-attach-point="updateFS" data-dojo-props="toggleable:false">
+		<legend><b>Update</b></legend>
+		<div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="updateDiv" data-dojo-props="cols:1, orientation:'horiz',spacing:2,customClass:'ldesk-tbl label-right'">
+			<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="caseStatus" data-dojo-props="labelAttr:'name',labelType:'text'" title="Status" value="Select a Status"></div>
+			<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="caseSubStatus" data-dojo-props="labelAttr:'name',labelType:'text'" title="Sub Status" value="Select a Sub Status"></div>
+			<div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="caseAssignee" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'" title="Assignee"></div>
+		</div>
+		<div style="text-align:center;margin-top:20px">
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="updateBtn">Update</button>
+		</div>
+	</div>
+</div>

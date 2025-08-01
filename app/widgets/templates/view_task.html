@@ -1,0 +1,109 @@
+<div class="${baseClass}" style="height: 100%;width: 100%;">
+    <div class="headerTitle" style="display: inline-block; width: 100%; padding-top: 10px;padding-bottom: 10px;background: #fffff0;margin-bottom: 10px; border: 1px solid #b5bcc7;">
+        <div style="display: inline-block;width: 40%;vertical-align: middle;">
+            <label style="padding-left: 10px;"><b>Task</b></label>
+            <label style="padding-left: 10px; font-size: 14px;"> <b><span data-dojo-attach-point="TaskNumSpan"></span></b></label>
+        </div>
+
+        <div style="display: inline-flex;width: 55%;text-align: right;justify-content: right;align-items: center;">
+            <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="refreshBtn" style="padding-left: 5px;">Refresh</div>
+            <div data-dojo-type="dijit/form/DropDownButton" data-dojo-attach-point="taskActionBtn" style="padding-left: 5px;" data-dojo-props="disabled:false">
+                <span>Actions</span>
+                <div data-dojo-type="dijit/DropDownMenu" data-dojo-attach-point="taskActionMenu">
+                    <div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="closeTaskBtn" action="task-close">Close Task</div>
+                    <div data-dojo-type="dijit/MenuItem" data-dojo-props="disabled:false" data-dojo-attach-point="cancelTaskBtn" action="task-cancel">Cancel Task</div>
+
+                </div>
+            </div>
+
+            <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="TaskEditBtn" data-dojo-props="disabled:false" style="padding-left: 5px;" action="task-edit">Edit </div>
+            <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="TaskSaveBtn" style="display:none; padding-left: 5px;">Save</div>
+            <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="TaskDiscardBtn" style="display:none; padding-left: 5px;"> Discard Changes</div>
+            <div data-dojo-type="dijit.form.Button" data-dojo-attach-point="TaskCloseBtn" data-dojo-props="disabled:false" style="padding-left: 5px;"> Close Window</div>
+        </div>
+    </div>
+    <div style="height: 90%; width:100%;">
+        <div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;overflow-y:auto;overflow-x: hidden;" data-dojo-attach-point="viewTaskTabContainer">
+            <div data-dojo-type="dijit/layout/ContentPane" title="Details" data-dojo-attach-point="TaskDetails" style="width: 100%; height: 100%" data-dojo-props="selected:true">
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Case Overview</b>',open:true" data-dojo-attach-point="caseMgmntPanel" style="padding-top: 10px; width: 98%">
+                    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseMgmntForm">
+                        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="caseMgmtTable">
+                            <div data-dojo-type="dijit.form.TextBox" title="Case Number" data-dojo-attach-point="caseNumber"></div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Case Owner" data-dojo-attach-point="ownerName">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Case Status" data-dojo-attach-point="status">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Service Number" data-dojo-attach-point="serviceNumber">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Service Priority" data-dojo-attach-point="servicePriority">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Time Zone" data-dojo-attach-point="timeZone">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Queue" data-dojo-attach-point="queueName">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Category" data-dojo-attach-point="categoryName">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Type" data-dojo-attach-point="type">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Sub-Type" data-dojo-attach-point="subType">
+                            </div>
+                            <div><textarea data-dojo-type="dijit/form/SimpleTextarea" title="Service Address" data-dojo-attach-point="serviceAddress" data-dojo-props="rows:2" style="width: 300px;height:50px"></textarea></div>
+                        </div>
+                        <div class="center">
+                            <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="viewCaseBtn">View Case Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Task Overview</b>',open:true" data-dojo-attach-point="TaskMgmntPanel" style="padding-top: 10px; width: 98%">
+                    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="TaskMgmntForm">
+                        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="TaskMgmntTable">
+                            <div data-dojo-type="dijit.form.TextBox" title="Task Number<req>" data-dojo-attach-point="taskNumber" required="true">
+                            </div>
+                            <div data-dojo-type="dijit/form/FilteringSelect" title="Category<req>" data-dojo-attach-point="category" style="width: 250px" required="true">
+                                <option value="Engineering">Engineering</option>
+                            </div>
+                            <div data-dojo-type="dijit/form/FilteringSelect" title="Queue<req>" data-dojo-attach-point="queueName" style="width: 250px" required="true">
+                                <option value="Engineering">Engineering</option>
+                            </div>
+                            <div data-dojo-type="dijit/form/FilteringSelect" title="Owner<req>" data-dojo-attach-point="ownerId" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'" required="true">
+                            </div>
+                            <div data-dojo-type="dijit/form/FilteringSelect" title="Status<req>" data-dojo-attach-point="status" style="width: 250px" required="true">
+                            </div>
+                            <textarea data-dojo-type="app/view/ValidationTextarea" title="Description<req>" data-dojo-attach-point="description" data-dojo-props="missingMessage:'Please enter the Description', tooltipPosition:['after'], rows:3" style="width:300px" required="true" rows="3"></textarea>
+                            <textarea data-dojo-type="app/view/ValidationTextarea" title="Resolution" data-dojo-attach-point="resolution" data-dojo-props="missingMessage:'Please enter the Resolution', tooltipPosition:['after'], rows:3" style="width:300px" required="false" rows="3"></textarea>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Task Event Details</b>',open:true" data-dojo-attach-point="TaskEventInfoPanel" style="padding-top: 10px; width: 98%;">
+                    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="TaskEventInfoForm">
+                        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:6,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="TaskEventInfoTable">
+
+                            <div data-dojo-type="dijit.form.TextBox" title="Created By" data-dojo-attach-point="createdUser">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Created Date" data-dojo-attach-point="createdDate">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Modified By" data-dojo-attach-point="modifiedUser">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Modified Date" data-dojo-attach-point="modifiedDate">
+                            </div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Closed By" data-dojo-attach-point="closedUser"></div>
+                            <div data-dojo-type="dijit.form.TextBox" title="Closed Date" data-dojo-attach-point="closedDate"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-dojo-type="dijit/layout/ContentPane" title="Related" data-dojo-attach-point="taskRelated" data-dojo-attach-event='onShow: initTaskRelated'>
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>History</b>',open:true,toggleable: false" data-dojo-attach-point="taskHistoryPane">
+                    <div data-dojo-attach-point="taskHistoryDiv" style="width: 99%;height:300px"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

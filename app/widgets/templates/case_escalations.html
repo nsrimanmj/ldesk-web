@@ -1,0 +1,49 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Escalation Request" data-dojo-props="destroyOnClose : true,closable: true"
+        data-dojo-attach-point="escalationDialog" style="width:60%; background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-attach-point="curEscDiv" style="display: none; padding-bottom: 5px;">
+                <label style="display: inline;padding-right: 10px; font-size: 13px;"><b>Current Escalation
+                        Level:</b></label>
+                <div data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="currEscLevel"
+                    style="width: 250px;display: inline-block; font-size: 13px;" disabled>
+                </div>
+            </div>
+            <div data-dojo-attach-point="escReasonDiv" style="display: none; padding-bottom: 5px;">
+                <label style="display: inline;padding-right: 10px;"><b>Reason for escalation<req></b></label>
+                <div data-dojo-type="app/view/ValidationTextarea" data-dojo-attach-point="escReason" required="true"
+                    data-dojo-props="rows:3" style="width: 300px;display: inline-block;">
+                </div>
+            </div>
+            <div data-dojo-attach-point="exceptionDiv" style="display: none;">
+                <label style="font-size: 13px;"><b><span data-dojo-attach-point="line1Span"></span></b></label><br>
+                <label style="font-size: 13px;"><b><span data-dojo-attach-point="line2Span"></span></b></label><br>
+                <label style="display: inline;padding-right: 10px; font-size: 13px;"><b>Last Escalation:
+                    </b></label>
+                <div data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="lastEscalation"
+                    style="width: 250px;display: inline-block; font-size: 13px;" disabled>
+                </div> <br>
+                <label style="display: inline;padding-right: 10px; font-size: 13px;"><b>Case Age(In Hours):
+                    </b></label>
+                <div data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="caseAgeInHrs"
+                    style="width: 250px;display: inline-block; font-size: 13px;" disabled>
+                </div><br>
+                <label style="display: inline;padding-right: 10px;"><b>Override Requirement
+                    </b></label>
+                <div data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="reqCheck"
+                    data-dojo-props="checked:false">
+                </div><br>
+                <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="nextBtn" type="button"
+                    disabled>Next</button>
+            </div>
+            <div data-dojo-attach-point="noCriteriaDiv" style="display: none;">
+                <label style="font-size: 13px;"><b><span data-dojo-attach-point="line3Span"></span></b></label><br>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn" disabled>Submit
+                Request</button>
+        </div>
+    </div>
+</div>

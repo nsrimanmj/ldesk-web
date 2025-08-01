@@ -1,0 +1,15 @@
+<div>
+    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseClosureForm" action="">
+        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="caseClosureTable" data-dojo-props="cols:4,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Post-Mortem" data-dojo-attach-point="postMortem" placeholder="Post-Mortem" data-dojo-props="" allowedTypes="I,N" style="width: 250px;"> </div>
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Resolution(Tier 1)" placeholder="Resolution(Tier 1)" data-dojo-attach-point="resolutionT1" allowedTypes="I,N" data-dojo-props="" style="width: 250px;"> </div>
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Resolution(Tier 2)" placeholder="Resolution(Tier 2)" data-dojo-attach-point="resolutionT2" allowedTypes="I,N" data-dojo-props="" style="width: 250px;"> </div>
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Resolution(Tier 3)" placeholder="Resolution(Tier 3)" data-dojo-attach-point="resolutionT3" allowedTypes="I,N" data-dojo-props="" style="width: 250px;"> </div>
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Resolution Code" placeholder="Resolution Code" allowedTypes="Q,E" data-dojo-attach-point="resolutionCode" style="width:250px"></div>
+            <div data-dojo-type="app/view/ValidationTextarea" title="Resolution Description" allowedTypes="I,Q,N,E" data-dojo-attach-point="resolutionDescription" data-dojo-props="rows:2" style="width: 250px;"></div>
+            <div data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="fcr" name="FCR" allowedTypes="I,Q,N" data-dojo-props="checked:false" title="First Call Resolution">
+            </div>
+            <div data-dojo-type="dijit/form/ValidationTextBox" title="Shipping Tracking Number" allowedTypes="E" data-dojo-attach-point="shippingTrackNum"></div>
+        </div>
+    </div>
+</div>

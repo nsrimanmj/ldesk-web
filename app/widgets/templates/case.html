@@ -1,0 +1,38 @@
+<div class="${baseClass}">
+	<div data-dojo-type="dojox/widget/TitleGroup" id="createCaseTg" data-dojo-attach-point="createCaseTg">
+
+		<div data-dojo-type="dijit/layout/ContentPane" style="height:100%;width:100%;padding:20px">
+			<div style="height:80%;width:80%">
+
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="caseInquiryBtn" style="text-align:right" action="case-create" recordType="Inquiry"><b>Create Inquiry</b></div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="caseIncidentBtn" style="text-align:right" action="case-create" recordType="Incident"><b>Create Incident</b></div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="caseEquipmentBtn" style="text-align:right" action="case-create" recordType="Equipment"><b>Create Equipment</b></div>
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="caseCollectionBtn" style="text-align:right" action="case-create" recordType="Collections"><b>Create Collection</b></div>
+			</div>
+		</div>
+		<div>
+
+			<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Existing Cases</b>',toggleable: false, open:true" data-dojo-attach-point="existingCasesTitlePane">
+				<div data-dojo-attach-point="refreshDiv" style="position: relative; left: 97.5%; padding-bottom: 10px;z-index: 1000">
+					<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="existingCasesreloadBtn" id="existingCasesreloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+						<div>Reload</div>
+					</div>
+					<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+						<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+						<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading
+							...</label>
+					</div>
+				</div>
+				<div data-dojo-attach-point="existingCasesdiv" style="height: 20em;width: 99%"></div>
+			</div>
+
+			<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Salesforce Cases</b>',toggleable: false,open:true" data-dojo-attach-point="SFCasesTitlePane">
+				<div data-dojo-attach-point="SFCasesdiv" style="height: 20em; width: 99%"></div>
+			</div>
+		</div>
+
+		<!-- <div data-dojo-attach-point="createCaseToolBar" style="text-align: center;padding: 2px;background-color: #efefef;border-bottom: 1px solid #b5bcc7;">
+			<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="caseViewBtn"><b>View Case</b></div>
+		</div> -->
+	</div>
+</div>

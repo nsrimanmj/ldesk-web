@@ -1,0 +1,34 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Complete/Cancel" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="woCompCancelDlg" style="width:60%; background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-attach-point="optionDiv" style="text-align: center;">
+                <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="completeBtn" type="button">Complete
+                    Work Order</button>
+                <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelBtn" type="button">Cancel Work
+                    Order</button>
+            </div>
+            <div data-dojo-attach-point="completeDiv" style="display: none;">
+                <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form1">
+                    <div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="woComplete" data-dojo-props="cols:1,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+                        <div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="openCode" title="Open Code<req>" required="true"></div>
+                        <div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="closeCode" title="Close Code<req>" required="true"></div>
+                        <div data-dojo-type="app/view/ValidationTextarea" data-dojo-attach-point="resDescription1" title="Resolution Description<req>" rows="4" style="width: 300px;" required="true"></div>
+                    </div>
+                </div>
+            </div>
+            <div data-dojo-attach-point="cancelDiv" style="display: none;">
+                <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form2">
+                    <div data-dojo-type="dojox.layout.TableContainer" data-dojo-attach-point="woCancel" data-dojo-props="cols:1,orientation:'vert',spacing:2,customClass:'ldesk-tbl'">
+                        <div data-dojo-type="app/view/ValidationTextarea" title="Resolution Description<req>" data-dojo-attach-point="resDescription2" rows="4" style="width: 300px;" required="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center; display: none;" data-dojo-attach-point="dialogActionbar">
+            <!-- <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="prevBtn" type="button">Previous</button> -->
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn" type="button">Submit</button>
+        </div>
+    </div>
+</div>

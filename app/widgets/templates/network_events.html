@@ -1,0 +1,34 @@
+<div class="${baseClass}" style="height:100%;width:100%;">
+
+	<div data-dojo-type="dijit/layout/ContentPane" style="height: 3%;width:100%;padding:20px" action="case-create" recordType="Network" data-dojo-attach-point="createNetworkpane">
+		<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="createNetworkBtn" style="text-align:right">
+			<b>Create Network Event</b>
+		</div>
+	</div>
+	<div>
+		<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Network Events</b>',toggleable: false, open:true" data-dojo-attach-point="networkEventsTitlePane">
+			<div data-dojo-attach-point="refreshDiv" style="display: flex;width: 99%;justify-content: flex-end;padding-bottom: 5px;">
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="networkCasesreloadBtn" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+					<div>Reload</div>
+				</div>
+				<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+					<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+					<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading
+						...</label>
+				</div>
+			</div>
+			<div data-dojo-attach-point="networkEventsDiv" style="margin-top: 1em; width:99%;height: 600px;"></div>
+		</div>
+	</div>
+
+	<div data-dojo-type="dijit/Dialog" class="" title="View Related Cases" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="viewDlg" style="width:1000px;">
+		<div class="dijitDialogPaneContentArea">
+			<div data-dojo-attach-point="relatedCasesDiv" style="width: 100%;"></div>
+			<div class="dijitDialogPaneActionBar" style="text-align: center">
+				<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="closeViewDlgBtn">Close</button>
+
+				<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="removeCaseBtn" action="case-remove-network" recordType="Network">Remove</button>
+
+			</div>
+		</div>
+	</div>

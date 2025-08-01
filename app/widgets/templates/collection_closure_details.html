@@ -1,0 +1,19 @@
+<div class="${baseClass}" style="height: 100%;width: 100%;">
+	<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="colClosureForm" action="">
+		<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:3,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="colClosureFormTable" style="height:150px">
+			<div type="text" name="Collections End Date" title="Collections End Date<req>" data-dojo-id="endDate" data-dojo-attach-point="endDate" value="" data-dojo-type="dijit/form/DateTextBox" data-dojo-type="dijit/form/DateTextBox" data-dojo-props="constraints:{min: new Date(),datePattern: 'yyyy-MM-dd'}" required="true"></div>
+			<div data-dojo-type="app/view/ValidationTextarea" title="Close Reason" data-dojo-attach-point="closeReason" data-dojo-props="rows:2" style="width: 250px;"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" maxLength="256" name="Paid Amount" title="Paid Amount<req>" data-dojo-props="
+            pattern: '^-?\\d+(\\.\\d{1,2})?$',
+            required: true,
+            invalidMessage: 'Enter a valid amount (e.g., -15067.74 or 12345.67)'
+            " data-dojo-attach-point="paidAmt">
+			</div>
+			<div data-dojo-type="app/view/ValidationTextarea" title="Resolution Description" data-dojo-attach-point="resolutionDesc" data-dojo-props="rows:2" style="width: 250px;"></div>
+			<div data-dojo-type="dijit/form/ValidationTextBox" title="Disconnect Order Id" data-dojo-attach-point="disconnectOrderId"></div>
+		</div>
+
+	</div>
+
+
+</div>

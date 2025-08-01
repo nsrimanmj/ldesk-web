@@ -1,0 +1,18 @@
+<div class="${baseClass}">
+	<div style="display: flex;justify-content: flex-end;align-items: center;">
+		<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="mailReloadBtn" class="reload-btn" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+			<div>Reload</div>
+		</div>
+		<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+			<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+			<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading...</label>
+		</div>
+	</div>
+
+	<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="sendMailBtn" action="case-send-email" recordType="${recordType}" style="display:none;">Send Mail</button>
+	<div style="display: inline; padding-left: 5px;">
+		<input id="emailFilter_${info.caseId}" data-dojo-attach-point="emailFilter" data-dojo-type="dijit/form/CheckBox" value="0" />
+		<label for="emailFilter_${info.caseId}" style="display: inline">Show All</label>
+	</div>
+	<div data-dojo-attach-point="muaEmailsDiv" style="margin-top: 1em; height:35em;width:100%"></div>
+</div>

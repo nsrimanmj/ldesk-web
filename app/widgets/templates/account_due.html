@@ -1,0 +1,17 @@
+<div class="${baseClass}">
+   <div>
+		<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: '<b>Account Dues</b>',toggleable: false, open:true" data-dojo-attach-point="accountDuesTitlePane">
+			<div data-dojo-attach-point="refreshDiv" style="display: flex;width: 99%;justify-content: flex-end;padding-bottom: 5px;">
+				<div data-dojo-type="dijit.form.Button" data-dojo-attach-point="accountDueButton" class="reload-btn" style="padding-right: 0px;" data-dojo-props="iconClass:'reloadIcon',showLabel: false">
+					<div>Reload</div>
+				</div>
+				<div data-dojo-attach-point="reloadingDiv" class="" style="text-align:right;display:none;color: blue;padding-right: 10px;margin-left: -60px">
+					<img src="images/loading_icon.gif" style="width: 15px; height: 15px;display: inline-block">
+					<label data-dojo-attach-point="reloadLabel" style=" font-weight: bold; display: inline-block;">Reloading
+						...</label>
+				</div>
+			</div>
+			<div data-dojo-attach-point="agingGridDiv" style="margin-top: 1em; width:99%;height: 600px;"></div>
+		</div>
+	</div>
+</div>

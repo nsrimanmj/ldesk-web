@@ -1,0 +1,15 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseInformationForm" action="">
+        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2,orientation:'vert',spacing:2,customClass:'searchtable'">
+           <div data-dojo-type="dijit/form/ComboBox" title="Service Number" data-dojo-attach-point="serviceNumber" data-dojo-props="missingMessage:'Please enter Service Number',tooltipPosition:['after'],hasDownArrow: false, highlightMatch:'all', intermediateChanges:true" required = "true"></div>
+            <div data-dojo-type="dijit/form/Select" title="Service Priority" data-dojo-attach-point="servicePriority" required="true" style="width: 200px;"> </div>
+            <div data-dojo-type="dijit/form/Select" title="Category" data-dojo-attach-point="category" required="true" style="width: 200px;"> </div>
+            <div data-dojo-type="dijit/form/Select" title="Case Origin" data-dojo-attach-point="caseOrigin" required="true" style="width: 200px;"> </div>
+            <div data-dojo-type="dijit/form/Select" title="Sub Category" data-dojo-attach-point="subCategory" style="width: 200px;"> </div>
+            <div data-dojo-type="dijit/form/Select" title="Provider" data-dojo-attach-point="provider" required="true" style="width: 200px;"> </div>
+            <div data-dojo-type="dijit/form/Select" title="Sub Category (Tier 3)" data-dojo-attach-point="subCategory3" style="width: 200px;"> </div>
+            <div type="text" name="subject" title="Subject" data-dojo-props="rows:1" style="width:98%;" data-dojo-attach-point="subject" value="" data-dojo-type="dijit/form/SimpleTextarea"></div>
+            <div type="text" name="description" title="Description" data-dojo-props="rows:3" style="width:98%;" data-dojo-attach-point="desc" value="" data-dojo-type="dijit/form/SimpleTextarea"></div>
+        </div>
+    </div>
+</div>

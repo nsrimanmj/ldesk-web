@@ -1,0 +1,20 @@
+<div class="${baseClass}">
+
+
+    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseAddInfoForm" action="">
+        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2, orientation:'vert', spacing:2" style="padding-bottom: 0.4em;">
+
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Case Origin" data-dojo-attach-point="caseOriginSelect" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;">
+            </div>
+
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Priority" data-dojo-attach-point="casePrioritySelect" data-dojo-props="labelAttr:'name',labelType:'text'" sortByLabel=false required="true" style="width: 200px;">
+                <option value="1">High</option>
+                <option value="2">Medium</option>
+                <option value="3">Low</option>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

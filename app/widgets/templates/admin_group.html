@@ -1,0 +1,49 @@
+<div class="${baseClass}">
+	<style type="text/css">
+		.searchtable-valueCell {
+			padding-bottom: 0.4em;
+		}
+
+		.center {
+			text-align: center;
+		}
+	</style>
+	<div data-dojo-type="dojox/widget/TitleGroup">
+		<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="margin-top: 1em; padding-bottom: 2px;width: 47%;display: inline-block;height: 80%;vertical-align: top">
+			<legend><b>Group</b> </legend>
+			<div data-dojo-attach-point="newGroupDiv" style="height: 501px;width: 100%">
+				<div data-dojo-type="dijit/form/Form" data-dojo-attach-point="newGroupForm" encType="multipart/form-data" action="" method="" novalidate autocomplete="off" style="padding-top: 15px">
+					<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:1, orientation:'vert', customClass:'searchtable'">
+						<div data-dojo-type="dijit/form/TextBox" class="required" data-dojo-props="intermediateChanges:true" name="groupName" title="Group Name" data-dojo-attach-point="newGroupName" value="" required="true"></div>
+						<div data-dojo-type="dijit/form/TextBox" class="required" data-dojo-props="intermediateChanges:true" name="long_grpname" title="Long Group Name" value="" data-dojo-attach-point="longGroupName" required="true"></div>
+						<div data-dojo-type="dijit.layout.ContentPane" name="status" title="Status" data-dojo-attach-point="new_status" value="" class="radio-inline" style="padding: 0;margin: 0">
+							<label><input type="radio" data-dojo-type="dijit/form/RadioButton" title="Active" value="Active" data-dojo-attach-point="groupstatus_active" style="margin-right: 5px ">Active</label>
+							<label><input type="radio" data-dojo-type="dijit/form/RadioButton" title="InActive" value="Inactive" data-dojo-attach-point="groupstatus_inactive" style="margin-right: 5px ">InActive</label>
+						</div>
+						<div class="left" name="groupComment" title="Comments" data-dojo-type="dijit/form/SimpleTextarea" rows="9" style="width:300px; height: 100px;resize:none;" data-dojo-attach-point="groupComment"></div>
+
+					</div>
+
+					<div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:2, orientation:'vert', spacing:2,customClass:'searchtable'" style="padding-top: 50px">
+						<div data-dojo-type="dijit/form/TextBox" class="required" data-dojo-props="intermediateChanges:true" data-dojo-attach-point="grp_createdBy" name="createdBy" title="Created By" value="${loginName}" disabled></div>
+						<div data-dojo-type="dijit/form/TextBox" class="required" data-dojo-props="intermediateChanges:true" data-dojo-attach-point="grp_createdDate" name="createdDate" title="Created Date" value="${current_time}" innerHTML="" disabled></div>
+						<div data-dojo-type="dijit/form/TextBox" class="required" data-dojo-props="intermediateChanges:true" data-dojo-attach-point="grp_modifiedBy" name="modifiedBy" title="Modified By" value="${loginName}" disabled></div>
+						<div data-dojo-type="dijit/form/TextBox" class="required" data-dojo-props="intermediateChanges:true" data-dojo-attach-point="grp_modifiedDate" name="modifiedDate" title="Modified Date" value="${current_time}" innerHTML="" disabled></div>
+					</div>
+					<br>
+					<div style="text-align:center; display:block; padding-top: 10px">
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="newGroupBtn" action="group-create">Create New</button>
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="searchGroupBtn">Search</button>
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="resetGroupBtn">Reset</button>
+						<button data-dojo-type="dijit/form/Button" data-dojo-attach-point="updateGroupBtn" disabled action="group-edit">Update</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div data-dojo-type="dijit/Fieldset" data-dojo-props="toggleable:false" style="margin-top: 1em; padding-bottom: 2px;width: 47%;display: inline-block;height: 80%;vertical-align: top">
+			<legend><b>Group Search Results</b> </legend>
+			<div data-dojo-attach-point="groupSearchDiv" style="height: 500px;width: 100%"></div>
+		</div>
+	</div>
+</div>

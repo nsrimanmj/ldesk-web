@@ -1,0 +1,36 @@
+<div class="${baseClass}">
+    <div data-dojo-type="dijit/Dialog" title="Cancel/Reschedule" data-dojo-props="destroyOnClose : true,closable: true" data-dojo-attach-point="wocancelRescheduleDlg" style="width:60%; background-color: white">
+        <div class="dijitDialogPaneContentArea">
+            <div data-dojo-attach-point="optionDiv" style="text-align: center;">
+                <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="rescheduleBtn" type="button">Reschedule Work Order</button>
+                <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelBtn" type="button">Cancel Work Order</button>
+            </div>
+            <div data-dojo-attach-point="rescheduleDiv" style="display: none;">
+                <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form1">
+                    <div>
+                        <div><label><B>Time Zone<req></B></label></div>
+                        <div data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="timeZone" disabled></div>
+                    </div><br>
+                    <div data-dojo-attach-point="dispatchDiv">
+                        <div><label><B>Reschedule Date and Time<req></B></label></div>
+                        <div data-dojo-type="dijit/form/DateTextBox" data-dojo-attach-point="dispatchDate" data-dojo-props="constraints:{min: new Date(),datePattern: 'yyyy-MM-dd'}" required="true"></div>
+                        <div data-dojo-type="dijit/form/TimeTextBox" data-dojo-attach-point="dispatchTime" data-dojo-props="constraints: {timePattern: 'HH:mm:ss', clickableIncrement: 'T00:15:00', visibleIncrement: 'T00:15:00', visibleRange: 'T01:00:00' }" required="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-dojo-attach-point="cancelDiv" style="display: none;">
+                <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="form2">
+                    <label><b>Note for Dispatcher<req></b></label>
+                    <div data-dojo-type="app/view/ValidationTextarea" data-dojo-attach-point="noteForDispatcher" rows="4" style="width: 300px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dijitDialogPaneActionBar" style="text-align:center; display: none;" data-dojo-attach-point="dialogActionbar">
+            <!-- <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="prevBtn" type="button">Previous</button> -->
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="closeBtn" type="button">Close</button>
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitBtn" type="button">Submit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="${baseClass}" style="height: 100%;width: 100%;">
+    <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="caseManagementForm" action="">
+        <div data-dojo-type="dojox.layout.TableContainer" data-dojo-props="cols:4,orientation:'vert',spacing:2,customClass:'ldesk-tbl'" data-dojo-attach-point="caseManagementFormTable">
+            <div data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="searchAttr:'queueName', labelAttr:'queueName', labelType:'text'" allowedTypes="E" sortByLabel=true name="caseQueue" title="Queue<req>" data-dojo-attach-point="queueName"></div>
+            <div data-dojo-type="dijit/form/FilteringSelect" name="caseOwner" title="Case Owner${reqLabel1}" allowedTypes="E" placeholder="Case Owner" data-dojo-attach-point="ownerId" data-dojo-props="searchAttr:'fullName',labelAttr:'fullName',labelType:'text'" required="true"></div>
+            <div data-dojo-type="dijit.form.TextBox" title="Case Type" data-dojo-attach-point="groupName" allowedTypes="E" data-dojo-props="disabled:true,readOnly:true"> </div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="Account Id${reqLabel2}" allowedTypes="E">
+                <div data-dojo-type="dijit/form/ValidationTextBox" data-dojo-attach-point="accountId" title="Account Id" style="width: 150px;" data-dojo-props="disabled:true" required="true"></div>
+                <button dojoType="dijit.form.Button" data-dojo-attach-point="showSearchButton" iconClass="dijitIconSearch" showLabel="false" type="button" data-dojo-props="disabled:true">Search</button>
+            </div>
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Status<req>" data-dojo-attach-point="status" placeholder="Case Status" allowedTypes="E" sortByLabel=true required="true" style="width: 200px;max-height: 100px"></div>
+            <div data-dojo-type="dijit/form/FilteringSelect" title="Category<req>" data-dojo-attach-point="categoryName" placeholder="Category" allowedTypes="E" data-dojo-props="labelAttr:'categoryName',labelType:'text',sortByLabel:true" required="true" style="width: 200px"> </div>
+            <div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="eqStatus" allowedTypes="E" title="Equipment Status" placeholder="Select Equipment Status" required="false" data-dojo-props="labelAttr:'name',searchAttr:'name' "></div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="Make/Model/SN and Qty" data-dojo-attach-point="snQtyCP" style="display: inline;" allowedTypes="E">
+                <div data-dojo-type="app/view/ValidationTextarea" maxLength="255" data-dojo-attach-point="modelQty" data-dojo-props="missingMessage:'Please enter some text', tooltipPosition:['after'], rows:3" style="width:250px" rows="3" required="false"></div>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="Description<req>" data-dojo-attach-point="description" allowedTypes="E">
+                <div data-dojo-type="app/view/ValidationTextarea" data-dojo-attach-point="descriptionArea" data-dojo-props="rows:3" style="width:250px" required="true"></div>
+                <div iconClass="bookIcon" data-dojo-type="dijit.form.Button" data-dojo-attach-point="btnDescrView" data-dojo-props="showLabel:false"></div>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="Shipping Address" data-dojo-attach-point="shpAddressCP" style="display: inline;" allowedTypes="E">
+                <div data-dojo-type="app/view/ValidationTextarea" maxLength="255" data-dojo-attach-point="shippingAddress" placeholder="Enter Shipping address" data-dojo-props="missingMessage:'Please enter shipping address', tooltipPosition:['after'], rows:3" style="width:250px" rows="3"></div>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="Additional Information" data-dojo-attach-point="addInfoCP" style="display: inline;" allowedTypes="E">
+                <div data-dojo-type="app/view/ValidationTextarea" maxLength="500" data-dojo-attach-point="addInfo" data-dojo-props="rows:3" style="width:250px"></div>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" title="Subject" data-dojo-attach-point="subject" allowedTypes="E">
+                <div data-dojo-props="rows:3" style="width:250px;" data-dojo-attach-point="subjectArea" data-dojo-type="app/view/ValidationTextarea"></div>
+                <div iconClass="bookIcon" data-dojo-type="dijit.form.Button" data-dojo-attach-point="btnSubjectView" data-dojo-props="showLabel:false"></div>
+            </div>
+        </div>
+    </div>
+    <div data-dojo-type="dijit/Dialog" data-dojo-attach-point="searchAccDlg" title="Search Account" style="width:70%">
+        <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="saveFolderForm">
+            <div style="display: inline-block;padding-right: 20px">
+                <label for="searchBy" style="padding-bottom:1px">Search By</label>
+                <div data-dojo-type="dijit/form/FilteringSelect" title="Search By" data-dojo-attach-point="searchName" style="width: 200px" value="App ID" required>
+                    <option value="App ID">App ID</option>
+                    <option value="Customer Name">Customer Name</option>
+                </div>
+            </div>
+            <div style="display: inline-block;position: relative;left:5px">
+                <div style="display: inline-block;">
+                    <label id="cp_searchLabel"><span data-dojo-attach-point="searchlabel">App ID:</span></label>
+                    <div data-dojo-attach-point="cp_searchText" data-dojo-type="dijit/form/ValidationTextBox" style="width: 200px;display: inline-block;"> </div>
+                </div>
+                <div style="display: inline-block;padding-left: 20px;">
+                    <label for="cp_searchText2" id="cp_searchLabel2"></label>
+                    <div data-dojo-attach-point="cp_searchText2" data-dojo-type="dijit/form/ValidationTextBox" style="width: 200px;display:none"> </div>
+                </div>
+            </div>
+            <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="searchBtn">Search</button>
+            <label style="font-size: 12px;color: green;margin-top: 10px;">(Select an account by click on the
+                cell)</label>
+            <div data-dojo-attach-point="searchResDiv"> </div>
+            <div style="text-align: center;margin-top: 10px;">
+                <label style="font-weight: bold;display: inline-block;">Selected Account Id: </label>
+                <div data-dojo-type="dijit/form/ValidationTextBox" title="Account Name" data-dojo-attach-point="selAccountId" style="width: 150px" disabled style="display: inline-block;">
+                </div>
+                <label style="font-weight: bold;display: inline-block;">Selected Account Type: </label>
+                <div data-dojo-type="dijit/form/FilteringSelect" data-dojo-attach-point="selAccountType" title="Account Type" style="width: 150px" disabled>
+                    <option value=" " selected>Select an Account</option>
+                    <option value="accountId" selected>Current Account</option>
+                    <option value="parentAccountId">Parent Account</option>
+                    <option value="topParentAccountId">Top Parent</option>
+                </div>
+            </div>
+            <div class="dijitDialogPaneActionBar" style="text-align:center">
+                <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelSearchBtn" type="button">Cancel</button>
+                <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="addBtn" data-dojo-props="disabled: true">Add</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
