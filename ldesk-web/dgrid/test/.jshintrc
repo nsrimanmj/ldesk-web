@@ -1,8 +1,0 @@
-{
-	"extends": "../.jshintrc",
-	"globals": {
-		"exports": true,
-		"module": true,
-		"intern": true
-	}
-}
